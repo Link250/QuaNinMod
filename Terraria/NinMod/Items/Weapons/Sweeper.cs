@@ -22,14 +22,16 @@ namespace NinMod.Items.Weapons
 				double randomAngle = baseAngle+(Main.rand.NextFloat()-0.5f)*0.37;
 				speedX = baseSpeed*(float)Math.Sin(randomAngle)* ((Main.rand.NextFloat()*0.2f+0.9f));
 				speedY = baseSpeed*(float)Math.Cos(randomAngle)* ((Main.rand.NextFloat() * 0.2f)+0.9f);
-
+				
 				Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 286, damage, 10f, Main.myPlayer);
+				
             }
 			return false;
 		}
 
 		public override void SetDefaults()
 		{
+
 			item.crit = 2;
 			item.knockBack = 5.75f;
 			item.useStyle = 5;
@@ -51,6 +53,7 @@ namespace NinMod.Items.Weapons
 			item.toolTip = "Converts all ammo to explosive bullets";
 			item.toolTip2 = "A shotgun made to quickly fill a room with led";
 			item.autoReuse = true;
+
 
 
 

@@ -52,7 +52,7 @@ namespace NinMod.Items.Weapons
 			
 			item.useAmmo = ProjectileID.Bullet;;
 			item.useSound = 36;
-			item.damage = 16;
+			item.damage = 14;
 			item.shootSpeed = 6.65f;
 			item.noMelee = true;
 			item.value = Item.sellPrice(0, 2, 0, 0);

@@ -16,18 +16,18 @@ namespace NinMod.Items.Weapons
 		{
 			
 			item.name = "Pow Hammer";
-			item.damage = 18;
+			item.damage = 23;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
 			item.toolTip = "It's e me!";
-			item.useTime = 20;
-			item.useAnimation = 20;
+			item.useTime = 30;
+			item.useAnimation = 30;
 			item.useStyle = 1;
 			item.knockBack = 2;
 			item.value = 002000;
-			item.crit = 2;
-			item.rare = 2;
+			item.crit = 6;
+			item.rare = 4;
 			item.useSound = 1;
 			item.autoReuse = true;
 
@@ -45,7 +45,7 @@ namespace NinMod.Items.Weapons
 		
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(31, 150);
+			target.AddBuff(31, 60);
 
 		}
 	}

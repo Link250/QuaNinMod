@@ -77,7 +77,7 @@ namespace NinMod.Items.Weapons
 			item.width = 50;
 			item.height = 14;
 			
-			item.useAmmo = ProjectileID.Bullet;;
+			item.useAmmo = ProjectileID.Bullet;
 			item.useSound = 36;
 			item.damage = 38;
 			item.shootSpeed = 9.65f;

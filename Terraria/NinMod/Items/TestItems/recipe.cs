@@ -26,6 +26,11 @@ namespace NinMod.Items.TestItems
 			AddDirtyRecipe(ItemID.MechanicalEye, 95);
 			AddDirtyRecipe(ItemID.MechanicalWorm, 95);
 			AddDirtyRecipe(ItemID.ChlorophyteBullet, 995);
+			AddDirtyRecipe(267, 995);
+			AddDirtyRecipe(3202, 1);
+			AddDirtyRecipe(3124, 1);
+			AddDirtyRecipe(1613, 1);
+			AddDirtyRecipe(2269, 1);
 		}
 		
 		private void AddDirtyRecipe(int itemID, int stack = 1){

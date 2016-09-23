@@ -20,7 +20,7 @@ namespace NinMod.Items.Weapons
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Just hot obsidian to be honest";
+			item.toolTip = "Just hot obsidian added to be honest";
 			item.useTime = 32;
 			item.useAnimation = 32;
 			item.useStyle = 1;

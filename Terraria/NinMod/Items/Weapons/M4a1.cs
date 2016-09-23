@@ -11,7 +11,7 @@ namespace NinMod.Items.Weapons
 		public override void SetDefaults()
 		{
 			item.name = "M4a1 suppressed";
-			item.damage = 25;
+			item.damage = 22;
 			item.crit = 4;
 			item.ranged = true;
 			item.width = 90;

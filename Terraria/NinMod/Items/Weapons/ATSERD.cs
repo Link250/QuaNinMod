@@ -46,15 +46,15 @@ namespace NinMod.Items.Weapons
 		{
 
 			item.name = "ATSERD";
-			item.damage = 20;
+			item.damage = 19;
 			item.magic = true;
 			item.crit = 4;
 			item.mana = 9;
 			item.width = 40;
 			item.height = 40;
 			item.toolTip = "And just enjoy yourself...";
-			item.useTime = 22;
-			item.useAnimation = 22;
+			item.useTime = 28;
+			item.useAnimation = 28;
 			item.useStyle = 5;
 			Item.staff[item.type] = true;
 			item.noMelee = true;

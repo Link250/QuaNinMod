@@ -11,14 +11,14 @@ namespace NinMod.Items.Weapons
 		public override void SetDefaults()
 		{
 			item.name = "Glock 18 fade";
-			item.damage = 12;
+			item.damage = 8;
 			item.crit = 3;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
 			item.toolTip = "This is still a good idea, right guys?";
-			item.useTime = 11;
-			item.useAnimation = 11;
+			item.useTime = 12;
+			item.useAnimation = 12;
 			item.useStyle = 5;
 			item.noMelee = true; //so the item's animation doesn't do damage
 			item.knockBack = 3f;

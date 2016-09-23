@@ -15,7 +15,7 @@ namespace NinMod.Items.Weapons
 		public override void SetDefaults()
 		{
 			item.name = "Manabomb";
-			item.damage = 34;
+			item.damage = 25;
 			item.magic = true;
 			item.crit = 25;
 			item.mana = 7;

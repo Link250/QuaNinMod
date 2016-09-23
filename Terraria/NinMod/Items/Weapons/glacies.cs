@@ -16,13 +16,13 @@ namespace NinMod.Items.Weapons
 		{
 			
 			item.name = "Glacies";
-			item.damage = 18;
+			item.damage = 17;
 			item.melee = true;
 			item.width = 42;
 			item.height = 42;
-			item.toolTip = "Just frozen fish scales to be honest";
-			item.useTime = 24;
-			item.useAnimation = 24;
+			item.toolTip = "Just frozen fish scales added to be honest";
+			item.useTime = 25;
+			item.useAnimation = 25;
 			item.useStyle = 1;
 			item.knockBack = 2;
 			item.value = 000020;

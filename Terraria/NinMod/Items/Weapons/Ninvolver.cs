@@ -34,7 +34,7 @@ namespace NinMod.Items.Weapons
 			item.height = 20;
 			item.toolTip = "A swirling force empowered with Solar Flux! ";
 			item.toolTip2 = "Nin-Sama's Gun of choice!";
-			item.useTime = 1;
+			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = 5;
 			item.healLife = 30;
@@ -44,10 +44,10 @@ namespace NinMod.Items.Weapons
 			item.value = Item.sellPrice(0, 4, 20, 0);
 			item.rare = 10;
 			item.useSound = 36;
-			item.autoReuse = true;
+			item.autoReuse = false;
 			item.shoot = 645; 
-			item.shootSpeed = 100f;
-//			item.useAmmo = ProjectileID.Bullet;
+			item.shootSpeed = 5f;
+			item.useAmmo = ProjectileID.Bullet;
 		}
 		
 

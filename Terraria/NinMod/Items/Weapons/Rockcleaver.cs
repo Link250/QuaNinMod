@@ -16,7 +16,7 @@ namespace NinMod.Items.Weapons
 		{
 			
 			item.name = "Ignis glacies";
-			item.damage = 33;
+			item.damage = 36;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
