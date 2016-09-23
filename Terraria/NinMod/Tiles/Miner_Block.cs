@@ -173,7 +173,7 @@ namespace NinMod.Tiles{
             int chestIndex = Chest.FindChest(x, y);
             if(chestIndex >= 0){
                 Chest chest = Main.chest[chestIndex];
-                for (int slot = 0; slot < 50; slot++){
+/*                for (int slot = 0; slot < 50; slot++){
                     if(chest.item[slot].type == ItemID.None){
                         chest.item[slot].SetDefaults(ItemID.DirtBlock);
                         chest.item[slot].stack = 1;
@@ -184,7 +184,7 @@ namespace NinMod.Tiles{
                             break;
                         }
                     }
-                }
+                }*/
                 int yOff = 3;
                 while (WorldGen.TileEmpty(x, y +yOff)) yOff++;
                 MineBlock(x, y + yOff, chest.item[0].pick);
