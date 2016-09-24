@@ -17,7 +17,7 @@ namespace NinMod.Tiles{
             Main.tileNoAttach[Type] = true;
             Main.tileValue[Type] = 500;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.Origin = new Point16(0, 0);
 //            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
             TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
@@ -30,7 +30,7 @@ namespace NinMod.Tiles{
             //	dustType = mod.DustType("DustName");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
-            chest = "Basic Miner";
+//            chest = "Basic Miner";
         }
 
         public string MapChestName(string name, int i, int j){
