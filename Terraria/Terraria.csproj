@@ -107,6 +107,7 @@
     <Compile Include="NinMod\ModHelper.cs" />
     <Compile Include="NinMod\NinMod.cs" />
     <Compile Include="NinMod\NPCs\MobDrops.cs" />
+    <Compile Include="NinMod\NPCs\Monster\b.cs" />
     <Compile Include="NinMod\NPCs\Monster\Metroid.cs" />
     <Compile Include="NinMod\Tiles\AlloySmelter.cs" />
     <Compile Include="NinMod\Tiles\Miner_Block.cs" />
@@ -695,6 +696,7 @@
     <Content Include="NinMod\Items\blocks\Miner_Item.png" />
     <Content Include="NinMod\Items\blocks\ChestTestItem.png" />
     <Content Include="NinMod\Items\blocks\TestBlock.png" />
+    <None Include="NinMod\NPCs\Monster\b.png" />
     <Content Include="NinMod\Tiles\Miner_Block.png" />
     <Content Include="NinMod\Tiles\ChestTestTile.png" />
     <Content Include="NinMod\Tiles\TestBlock.png" />
