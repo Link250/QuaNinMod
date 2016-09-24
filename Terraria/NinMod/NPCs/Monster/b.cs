@@ -84,7 +84,7 @@ namespace NinMod.NPCs.Monster
 		
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return 1f;
+			return 0f;
 		}
 		
 		public override void HitEffect(int hitDirection, double damage)
