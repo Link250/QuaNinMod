@@ -28,10 +28,7 @@ namespace NinMod.Items.Armor
             player.setBonus = "WROOOOOOOOOOOOOOOOM";
             player.meleeDamage *= player.velocity.Length() / 12;
             player.meleeCrit = 10;
-            //player.runAcceleration = 1f;
             player.thorns = player.velocity.Length() / 5;
-            player.thrownVelocity = 20;
-            player.thrownCost50 = true;
             player.thrownVelocity = 27f;
             player.statDefense += 1 + (int)(8 * player.velocity.Length());
             item.defense = 1 + (int)(8 * player.velocity.Length());
