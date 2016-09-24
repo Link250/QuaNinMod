@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumerationExtensions.cs" />
+    <Compile Include="NinMod\Items\Armor\Testhelmet.cs" />
     <Compile Include="NinMod\Items\blocks\AlloySmelter.cs" />
     <Compile Include="NinMod\Items\blocks\Miner_Item.cs" />
     <Compile Include="NinMod\Items\blocks\ChestTestItem.cs" />
