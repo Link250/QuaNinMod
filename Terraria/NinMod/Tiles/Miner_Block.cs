@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -357,6 +358,11 @@ namespace NinMod.Tiles{
             frameCounter++;
             frameCounter %= 4;
             frame = frameCounter;
+        }
+
+        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor) {
+            Tile tile = Main.tile[i, j];
+            if (tile.frameX == 18 && tile.frameY == 36) Dust.NewDust(new Vector2(i*16+5, j*16+14), 1, 1, 0);
         }
     }
 }
