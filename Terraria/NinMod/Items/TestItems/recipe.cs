@@ -31,7 +31,11 @@ namespace NinMod.Items.TestItems
 			AddDirtyRecipe(3124, 1);
 			AddDirtyRecipe(1613, 1);
 			AddDirtyRecipe(2269, 1);
-		}
+            AddDirtyRecipe(ItemID.BirdStatue);
+            AddDirtyRecipe(ItemID.Wire);
+            AddDirtyRecipe(ItemID.MulticolorWrench);
+            AddDirtyRecipe(ItemID.RedPressurePlate);
+        }
 		
 		private void AddDirtyRecipe(int itemID, int stack = 1){
 			ModRecipe recipe = new ModRecipe(mod);
