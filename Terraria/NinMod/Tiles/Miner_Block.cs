@@ -13,14 +13,12 @@ namespace NinMod.Tiles{
         public override void SetDefaults(){
             Main.tileSpelunker[Type] = true;
             Main.tileContainer[Type] = true;
-            Main.tileShine2[Type] = true;
-            Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileValue[Type] = 500;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Origin = new Point16(0, 1);
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
+//            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
             TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
             TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
@@ -36,15 +34,9 @@ namespace NinMod.Tiles{
         }
 
         public string MapChestName(string name, int i, int j){
-            int left = i;
-            int top = j;
             Tile tile = Main.tile[i, j];
-            if (tile.frameX % 36 != 0){
-                left--;
-            }
-            if (tile.frameY != 0){
-                top--;
-            }
+            int left = i - (int)(tile.frameX / 18);
+            int top = j - (int)(tile.frameY / 18);
             int chest = Chest.FindChest(left, top);
             if (Main.chest[chest].name == ""){
                 return name;
@@ -59,14 +51,8 @@ namespace NinMod.Tiles{
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged){
             Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0){
-                left--;
-            }
-            if (tile.frameY != 0){
-                top--;
-            }
+            int left = i - (int)(tile.frameX / 18);
+            int top = j - (int)(tile.frameY / 18);
             return Chest.CanDestroyChest(left, top);
         }
 
@@ -78,15 +64,10 @@ namespace NinMod.Tiles{
         public override void RightClick(int i, int j){
             Player player = Main.player[Main.myPlayer];
             Tile tile = Main.tile[i, j];
+//            Main.NewText(tile.frameX + ";" + tile.frameY); //debug
             Main.mouseRightRelease = false;
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0){
-                left--;
-            }
-            if (tile.frameY != 0){
-                top--;
-            }
+            int left = i - (int)(tile.frameX / 18);
+            int top = j - (int)(tile.frameY / 18);
             if (player.sign >= 0){
                 Main.PlaySound(11, -1, -1, 1);
                 player.sign = -1;
@@ -135,14 +116,8 @@ namespace NinMod.Tiles{
         public override void MouseOver(int i, int j){
             Player player = Main.player[Main.myPlayer];
             Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0){
-                left--;
-            }
-            if (tile.frameY != 0){
-                top--;
-            }
+            int left = i - (int)(tile.frameX / 18);
+            int top = j - (int)(tile.frameY / 18);
             int chest = Chest.FindChest(left, top);
             player.showItemIcon2 = -1;
             if (chest < 0){
@@ -169,8 +144,11 @@ namespace NinMod.Tiles{
         }
 
         public override void HitWire(int i, int j){
-            int x = i, y = j;
-            int chestIndex = Chest.FindChest(x, y);
+            Tile tile = Main.tile[i, j];
+            int chestX = i - (int)(tile.frameX / 18);
+            int chestY = j - (int)(tile.frameY / 18);
+            int drillX = chestX+1, drillY = chestY+2;
+            int chestIndex = Chest.FindChest(chestX, chestY);
             if(chestIndex >= 0){
                 Chest chest = Main.chest[chestIndex];
 /*                for (int slot = 0; slot < 50; slot++){
@@ -186,14 +164,14 @@ namespace NinMod.Tiles{
                     }
                 }*/
                 int yOff = 3;
-                while (WorldGen.TileEmpty(x, y +yOff)) yOff++;
-                MineBlock(x, y + yOff, chest.item[0].pick);
+                while (WorldGen.TileEmpty(drillX, drillY + yOff)) yOff++;
+                MineBlock(drillX, drillY + yOff, chest.item[0].pick);
                 foreach (Item item in Main.item) {
-                    Vector2 dist = new Vector2(x,y + yOff);
+                    Vector2 dist = new Vector2(drillX, drillY + yOff);
                     dist.X -= item.position.X / 16;
                     dist.Y -= item.position.Y / 16;
                     if (dist.Length() <= 2) {
-                        Item.NewItem(x*16,y*16, 0, 0, item.type);
+                        Item.NewItem(drillX * 16, drillY * 16, 0, 0, item.type);
                         item.SetDefaults();
                     }
                 }
