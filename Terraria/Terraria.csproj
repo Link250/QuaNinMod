@@ -107,6 +107,7 @@
     <Compile Include="NinMod\ModHelper.cs" />
     <Compile Include="NinMod\NinMod.cs" />
     <Compile Include="NinMod\NPCs\MobDrops.cs" />
+    <Compile Include="NinMod\NPCs\Monster\b.cs" />
     <Compile Include="NinMod\NPCs\Monster\Metroid.cs" />
     <Compile Include="NinMod\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="NinMod\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -703,6 +704,7 @@
     <Content Include="NinMod\Items\blocks\Miner_Item.png" />
     <Content Include="NinMod\Items\blocks\ChestTestItem.png" />
     <Content Include="NinMod\Items\blocks\TestBlock.png" />
+    <None Include="NinMod\NPCs\Monster\b.png" />
     <Content Include="NinMod\Tiles\Miner_Block.png" />
     <Content Include="NinMod\Tiles\ChestTestTile.png" />
     <Content Include="NinMod\Tiles\TestBlock.png" />
