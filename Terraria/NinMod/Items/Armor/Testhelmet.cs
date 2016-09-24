@@ -18,6 +18,8 @@ namespace NinMod.Items.Armor
         public override void SetDefaults()
         {
             item.name = "Testhelmet";
+            item.maxStack = 1;
+            item.defense = 1;
             item.toolTip = "tetete";
         }
 
@@ -28,9 +30,8 @@ namespace NinMod.Items.Armor
             player.meleeCrit = 10;
             player.thorns = player.velocity.Length() / 5;
             player.thrownVelocity = 27f;
-            player.statDefense += (int)(8 * player.velocity.Length());
-
-
+            player.statDefense += 1 + (int)(8 * player.velocity.Length());
+            item.defense = 1 + (int)(8 * player.velocity.Length());
         }
 
         /*  public override bool IsArmorSet(Item head, Item body, Item legs)

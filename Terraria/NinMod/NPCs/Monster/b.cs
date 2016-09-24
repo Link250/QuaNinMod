@@ -8,6 +8,7 @@ namespace NinMod.NPCs.Monster
 {
 	public class b : ModNPC
 	{
+        int shootCD = 0;
    /*     public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             float baseSpeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
@@ -31,9 +32,10 @@ namespace NinMod.NPCs.Monster
 
         public override void PostAI()
         {
-
-            if(npc.HasValidTarget)
+            
+            if(npc.HasValidTarget && shootCD <= 0)
             {
+                shootCD = 100;
                 float baseSpeed = (float)Math.Sqrt(5 * 5 + 5 * 5);
                 Vector2 targetPos = Main.player[npc.target].position;
                 Vector2 thisPos = npc.position;
@@ -41,7 +43,7 @@ namespace NinMod.NPCs.Monster
                 targetPos.Y -= (thisPos.Y += npc.height / 2);
                 double baseAngle = Math.Atan2(targetPos.X, targetPos.Y);
 
-                for (int i = 0; i < 1; ++i)
+                for (int i = 0; i < 20; ++i)
                 {
                     double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * 0.17;
                     float speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.2f + 0.9f));
@@ -51,6 +53,8 @@ namespace NinMod.NPCs.Monster
                     Main.projectile[projSlot].friendly = false;
                     Main.projectile[projSlot].hostile = true;
                 }
+            } else if(shootCD > 0) {
+                shootCD--;
             }
         }
 

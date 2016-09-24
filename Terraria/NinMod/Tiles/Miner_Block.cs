@@ -18,7 +18,6 @@ namespace NinMod.Tiles{
             Main.tileValue[Type] = 500;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Origin = new Point16(1, 1);
-//            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
             TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
             TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
@@ -31,7 +30,7 @@ namespace NinMod.Tiles{
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
             this.dresser = "Basic Miner";
-//            chest = "Basic Miner";
+            this.animationFrameHeight = 54;
         }
 
         public string MapChestName(string name, int i, int j){
@@ -352,6 +351,12 @@ namespace NinMod.Tiles{
                     }
                 }
             }
+        }
+
+        public override void AnimateTile(ref int frame, ref int frameCounter){
+            frameCounter++;
+            frameCounter %= 4;
+            frame = frameCounter;
         }
     }
 }
