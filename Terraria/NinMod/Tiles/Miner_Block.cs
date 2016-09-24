@@ -17,7 +17,7 @@ namespace NinMod.Tiles{
             Main.tileNoAttach[Type] = true;
             Main.tileValue[Type] = 500;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Origin = new Point16(0, 0);
+            TileObjectData.newTile.Origin = new Point16(1, 1);
 //            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
             TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
@@ -30,7 +30,8 @@ namespace NinMod.Tiles{
             //	dustType = mod.DustType("DustName");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
-            chest = "Basic Miner";
+            this.dresser = "Basic Miner";
+//            chest = "Basic Miner";
         }
 
         public string MapChestName(string name, int i, int j){
@@ -147,42 +148,29 @@ namespace NinMod.Tiles{
             Tile tile = Main.tile[i, j];
             int chestX = i - (int)(tile.frameX / 18);
             int chestY = j - (int)(tile.frameY / 18);
-            int drillX = chestX+1, drillY = chestY+2;
+            int drillX = chestX+1, drillY = chestY+4;
             int chestIndex = Chest.FindChest(chestX, chestY);
             if(chestIndex >= 0){
                 Chest chest = Main.chest[chestIndex];
-/*                for (int slot = 0; slot < 50; slot++){
-                    if(chest.item[slot].type == ItemID.None){
-                        chest.item[slot].SetDefaults(ItemID.DirtBlock);
-                        chest.item[slot].stack = 1;
+                while (drillY < Main.Map.MaxHeight && WorldGen.TileEmpty(drillX, drillY)) drillY++;
+                if (drillY >= Main.Map.MaxHeight) return;
+                int type = Main.tile[drillX, drillY].type;
+                bool foundSpace = false;
+                for (int slot = 0; slot < 50; slot++){
+                    Item item = chest.item[slot];
+                    if (item.type == ItemID.None){
+                        foundSpace = true;
                         break;
-                    }else{
-                        if(chest.item[slot].type == ItemID.DirtBlock){
-                            chest.item[slot].stack ++;
-                            break;
-                        }
                     }
-                }*/
-                int yOff = 3;
-                while (WorldGen.TileEmpty(drillX, drillY + yOff)) yOff++;
-                MineBlock(drillX, drillY + yOff, chest.item[0].pick);
-                foreach (Item item in Main.item) {
-                    Vector2 dist = new Vector2(drillX, drillY + yOff);
-                    dist.X -= item.position.X / 16;
-                    dist.Y -= item.position.Y / 16;
-                    if (dist.Length() <= 2) {
-                        Item.NewItem(drillX * 16, drillY * 16, 0, 0, item.type);
-                        item.SetDefaults();
-                    }
+                }
+                if (foundSpace) {
+                    MineBlock(drillX, drillY, chest.item[0].pick, chest);
+                    collectDrop(drillX, drillY, chest);
                 }
             }
         }
 
-        public override void AnimateTile(ref int frame, ref int frameCounter) {
-            Main.tileFrame[this.Type] = 1;
-        }
-
-        public void MineBlock(int x, int y, int pickPower) {
+        public void MineBlock(int x, int y, int pickPower, Chest chest) {
             this.hitTile.UpdatePosition(Main.tile[x, y].type, x, y);
             int num = 0;
             int tileId = this.hitTile.HitObject(x, y, 1);
@@ -334,6 +322,35 @@ namespace NinMod.Tiles{
             }
             if (num != 0) {
                 this.hitTile.Prune();
+            }
+        }
+
+        private void collectDrop(int x, int y, Chest chest) {
+            int nearestItem = -1;
+            float shortestDist = 10;
+            for (int i = 0; i < Main.item.Length; i++) {
+                Vector2 dist = new Vector2(x, y);
+                dist.X -= Main.item[i].position.X / 16;
+                dist.Y -= Main.item[i].position.Y / 16;
+                if (dist.Length() <= 2 && dist.Length() < shortestDist && Main.item[i].active) {
+                    shortestDist = dist.Length();
+                    nearestItem = i;
+                }
+            }
+            if (nearestItem < 0) return;
+            for (int slot = 0; slot < 50; slot++) {
+                if (chest.item[slot].type == ItemID.None) {
+                    chest.item[slot].SetDefaults(Main.item[nearestItem].type);
+                    chest.item[slot].stack = 1;
+                    Main.item[nearestItem].SetDefaults();
+                    break;
+                } else {
+                    if (chest.item[slot].type == Main.item[nearestItem].type) {
+                        chest.item[slot].stack++;
+                        Main.item[nearestItem].SetDefaults();
+                        break;
+                    }
+                }
             }
         }
     }
