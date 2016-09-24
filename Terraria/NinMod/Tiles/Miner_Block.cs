@@ -11,6 +11,7 @@ using Terraria.ObjectData;
 namespace NinMod.Tiles{
     public class Miner_Block : ModTile{
         HitTile hitTile = new HitTile();
+        double[] lastDrills = new double[1000];
         public override void SetDefaults(){
             Main.tileSpelunker[Type] = true;
             Main.tileContainer[Type] = true;
@@ -151,7 +152,8 @@ namespace NinMod.Tiles{
                 int chestY = j - (int)(tile.frameY / 18);
                 int drillX = chestX+1, drillY = chestY+4;
                 int chestIndex = Chest.FindChest(chestX, chestY);
-                if(chestIndex >= 0){
+                if(chestIndex >= 0 && lastDrills[chestIndex] + 100 <= Main.time) {
+                    lastDrills[chestIndex] = Main.time;
                     Chest chest = Main.chest[chestIndex];
                     while (drillY < Main.Map.MaxHeight && WorldGen.TileEmpty(drillX, drillY)) drillY++;
                     if (drillY >= Main.Map.MaxHeight) return;
