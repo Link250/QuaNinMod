@@ -146,26 +146,28 @@ namespace NinMod.Tiles{
 
         public override void HitWire(int i, int j){
             Tile tile = Main.tile[i, j];
-            int chestX = i - (int)(tile.frameX / 18);
-            int chestY = j - (int)(tile.frameY / 18);
-            int drillX = chestX+1, drillY = chestY+4;
-            int chestIndex = Chest.FindChest(chestX, chestY);
-            if(chestIndex >= 0){
-                Chest chest = Main.chest[chestIndex];
-                while (drillY < Main.Map.MaxHeight && WorldGen.TileEmpty(drillX, drillY)) drillY++;
-                if (drillY >= Main.Map.MaxHeight) return;
-                int type = Main.tile[drillX, drillY].type;
-                bool foundSpace = false;
-                for (int slot = 0; slot < 50; slot++){
-                    Item item = chest.item[slot];
-                    if (item.type == ItemID.None){
-                        foundSpace = true;
-                        break;
+            if(tile.frameX == 36 && tile.frameY == 18) {
+                int chestX = i - (int)(tile.frameX / 18);
+                int chestY = j - (int)(tile.frameY / 18);
+                int drillX = chestX+1, drillY = chestY+4;
+                int chestIndex = Chest.FindChest(chestX, chestY);
+                if(chestIndex >= 0){
+                    Chest chest = Main.chest[chestIndex];
+                    while (drillY < Main.Map.MaxHeight && WorldGen.TileEmpty(drillX, drillY)) drillY++;
+                    if (drillY >= Main.Map.MaxHeight) return;
+                    int type = Main.tile[drillX, drillY].type;
+                    bool foundSpace = false;
+                    for (int slot = 0; slot < 50; slot++){
+                        Item item = chest.item[slot];
+                        if (item.type == ItemID.None){
+                            foundSpace = true;
+                            break;
+                        }
                     }
-                }
-                if (foundSpace) {
-                    MineBlock(drillX, drillY, chest.item[0].pick, chest);
-                    collectDrop(drillX, drillY, chest);
+                    if (foundSpace) {
+                        MineBlock(drillX, drillY, chest.item[0].pick, chest);
+                        collectDrop(drillX, drillY, chest);
+                    }
                 }
             }
         }
