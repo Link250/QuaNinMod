@@ -15,24 +15,23 @@ namespace NinMod.Items.Armor
             return true;
         }
 
+        public override void SetDefaults()
+        {
+            item.name = "Testhelmet";
+            item.toolTip = "tetete";
+        }
+
         public override void UpdateEquip(Player player)
         {
-            player.setBonus = "Increases movement skill, decreases overall damage except for melee and thrown!";
-            player.meleeDamage *= 1f;
-            player.thrownDamage *= 1f;
-            player.rangedDamage *= 0.2f;
-            player.magicDamage *= 0.2f;
-            player.minionDamage *= 0.2f;
-            player.blackBelt = true;
-            player.dashTime = 5;
-            player.dash = 3;
-            player.dashDelay = 1;
+            player.setBonus = "WROOOOOOOOOOOOOOOOM";
+            player.meleeDamage *= player.velocity.Length() / 12;
             player.meleeCrit = 10;
-            player.runAcceleration = 1f;
-            player.thorns = 2.0f;
+            //player.runAcceleration = 1f;
+            player.thorns = player.velocity.Length() / 5;
             player.thrownVelocity = 20;
             player.thrownCost50 = true;
             player.thrownVelocity = 27f;
+            player.statDefense += (int)(8 * player.velocity.Length());
 
 
         }
