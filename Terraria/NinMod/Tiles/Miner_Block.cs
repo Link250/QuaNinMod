@@ -30,7 +30,7 @@ namespace NinMod.Tiles{
             //	dustType = mod.DustType("DustName");
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.Containers };
-//            chest = "Basic Miner";
+            chest = "Basic Miner";
         }
 
         public string MapChestName(string name, int i, int j){
@@ -176,6 +176,10 @@ namespace NinMod.Tiles{
                     }
                 }
             }
+        }
+
+        public override void AnimateTile(ref int frame, ref int frameCounter) {
+            Main.tileFrame[this.Type] = 1;
         }
 
         public void MineBlock(int x, int y, int pickPower) {
