@@ -35,9 +35,10 @@ namespace NinMod.NPCs.Monster
             if(npc.HasValidTarget)
             {
                 float baseSpeed = (float)Math.Sqrt(5 * 5 + 5 * 5);
-                Vector2 targetPos = Main.npc[npc.target].position;
-                targetPos.X -= npc.position.X;
-                targetPos.Y -= npc.position.Y;
+                Vector2 targetPos = Main.player[npc.target].position;
+                Vector2 thisPos = npc.position;
+                targetPos.X -= (thisPos.X += npc.width / 2);
+                targetPos.Y -= (thisPos.Y += npc.height / 2);
                 double baseAngle = Math.Atan2(targetPos.X, targetPos.Y);
 
                 for (int i = 0; i < 1; ++i)
@@ -46,7 +47,7 @@ namespace NinMod.NPCs.Monster
                     float speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.2f + 0.9f));
                     float speedY = baseSpeed * (float)Math.Cos(randomAngle) * ((Main.rand.NextFloat() * 0.2f) + 0.9f);
 
-                    Terraria.Projectile.NewProjectile(npc.position.X, npc.position.Y, speedX, speedY, 283, 10, 20f);
+                    Terraria.Projectile.NewProjectile(thisPos.X, thisPos.Y, speedX, speedY, 283, 10, 20f);
                 }
             }
         }
@@ -77,7 +78,7 @@ namespace NinMod.NPCs.Monster
 		
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.rand.Next(10)==0 && ModHelper.playerNearSolar(spawnInfo.player) ? 1f : 0f;
+			return 1f;
 		}
 		
 		public override void HitEffect(int hitDirection, double damage)

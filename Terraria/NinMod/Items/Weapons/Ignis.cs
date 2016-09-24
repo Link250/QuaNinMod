@@ -33,8 +33,14 @@ namespace NinMod.Items.Weapons
 
 			
 		}
-	
-		public override void AddRecipes()
+
+        public override bool UseItem(Player player) {
+            int[] randstyle = { 1, 3, 5 };
+            item.useStyle = (randstyle[(int)(Main.rand.NextFloat() * 3)]);
+            return base.UseItem(player);
+        }
+
+        public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddTile(18);
