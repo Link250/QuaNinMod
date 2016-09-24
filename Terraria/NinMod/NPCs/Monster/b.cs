@@ -47,7 +47,9 @@ namespace NinMod.NPCs.Monster
                     float speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.2f + 0.9f));
                     float speedY = baseSpeed * (float)Math.Cos(randomAngle) * ((Main.rand.NextFloat() * 0.2f) + 0.9f);
 
-                    Terraria.Projectile.NewProjectile(thisPos.X, thisPos.Y, speedX, speedY, 283, 10, 20f);
+                    int projSlot = Terraria.Projectile.NewProjectile(thisPos.X, thisPos.Y, speedX, speedY, 283, 10, 20f);
+                    Main.projectile[projSlot].friendly = false;
+                    Main.projectile[projSlot].hostile = true;
                 }
             }
         }
