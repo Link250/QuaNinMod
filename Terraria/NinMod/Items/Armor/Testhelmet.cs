@@ -17,7 +17,7 @@ namespace NinMod.Items.Armor
 
         public override void UpdateEquip(Player player)
         {
-            player.setBonus = "Increases movement skill, decreases overall damage except for melee and ranged!";
+            player.setBonus = "Increases movement skill, decreases overall damage except for melee and thrown!";
             player.meleeDamage *= 1f;
             player.thrownDamage *= 1f;
             player.rangedDamage *= 0.2f;
@@ -25,28 +25,32 @@ namespace NinMod.Items.Armor
             player.minionDamage *= 0.2f;
             player.blackBelt = true;
             player.dashTime = 5;
-            player.dash = 5;
-            player.dashDelay= 1;
+            player.dash = 3;
+            player.dashDelay = 1;
             player.meleeCrit = 10;
             player.runAcceleration = 1f;
-            
+            player.thorns = 2.0f;
+            player.thrownVelocity = 20;
+            player.thrownCost50 = true;
+            player.thrownVelocity = 27f;
+
 
         }
 
-      /*  public override bool IsArmorSet(Item head, Item body, Item legs)
-        {
-            return body.type == mod.ItemType("ExampleBreastplate") && legs.type == mod.ItemType("ExampleLeggings");
-        }*/
+        /*  public override bool IsArmorSet(Item head, Item body, Item legs)
+          {
+              return body.type == mod.ItemType("ExampleBreastplate") && legs.type == mod.ItemType("ExampleLeggings");
+          }*/
 
-    /*    public override void UpdateArmorSet(Player player)
-        {
-            player.setBonus = "trollface.jpg";
-            player.meleeDamage *= 0.8f;
-            player.thrownDamage *= 0.8f;
-            player.rangedDamage *= 0.8f;
-            player.magicDamage *= 0.8f;
-            player.minionDamage *= 0.8f;
-        }*/
+        /*    public override void UpdateArmorSet(Player player)
+            {
+                player.setBonus = "trollface.jpg";
+                player.meleeDamage *= 0.8f;
+                player.thrownDamage *= 0.8f;
+                player.rangedDamage *= 0.8f;
+                player.magicDamage *= 0.8f;
+                player.minionDamage *= 0.8f;
+            }*/
 
         public override void AddRecipes()
         {
