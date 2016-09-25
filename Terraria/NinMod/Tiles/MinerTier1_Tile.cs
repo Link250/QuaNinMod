@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace NinMod.Tiles{
-    public class Miner_Block : ModTile{
+    public class MinerTier1_Tile : ModTile{
         HitTile hitTile = new HitTile();
 
         int drillTimeout = 100;

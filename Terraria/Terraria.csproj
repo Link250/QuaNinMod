@@ -122,7 +122,7 @@
     <Compile Include="NinMod\NPCs\Monster\b.cs" />
     <Compile Include="NinMod\NPCs\Monster\Metroid.cs" />
     <Compile Include="NinMod\Tiles\AlloySmelter.cs" />
-    <Compile Include="NinMod\Tiles\Miner_Block.cs" />
+    <Compile Include="NinMod\Tiles\MinerTier1_Tile.cs" />
     <Compile Include="NinMod\Tiles\ChestTestTile.cs" />
     <Compile Include="NinMod\Tiles\TestBlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -721,7 +721,7 @@
     <Content Include="NinMod\Items\Weapons\SilverSpear.png" />
     <Content Include="NinMod\Items\Weapons\TinSpear.png" />
     <Content Include="NinMod\Items\Weapons\TungstenSpear.png" />
-    <Content Include="NinMod\Tiles\Miner_Block.png" />
+    <Content Include="NinMod\Tiles\MinerTier1_Tile.png" />
     <Content Include="NinMod\Tiles\ChestTestTile.png" />
     <Content Include="NinMod\Tiles\TestBlock.png" />
   </ItemGroup>
