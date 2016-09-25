@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumerationExtensions.cs" />
+    <Compile Include="NinMod\Items\Acc\ReinhardtboosterWings.cs" />
     <Compile Include="NinMod\Items\Armor\Testhelmet.cs" />
     <Compile Include="NinMod\Items\blocks\AlloySmelter.cs" />
     <Compile Include="NinMod\Items\blocks\Miner_Item.cs" />
@@ -705,6 +706,8 @@
     <None Include="NinMod\Tutorial.csproj.user" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NinMod\Items\Acc\ReinhardtboosterWings.png" />
+    <Content Include="NinMod\Items\Acc\ReinhardtboosterWings_Wings.png" />
     <Content Include="NinMod\Items\blocks\Miner_Item.png" />
     <Content Include="NinMod\Items\blocks\ChestTestItem.png" />
     <Content Include="NinMod\Items\blocks\TestBlock.png" />

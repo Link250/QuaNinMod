@@ -35,6 +35,9 @@ namespace NinMod.Items.TestItems
             AddDirtyRecipe(ItemID.Wire);
             AddDirtyRecipe(ItemID.MulticolorWrench);
             AddDirtyRecipe(ItemID.RedPressurePlate);
+            AddDirtyRecipe(ItemID.EoCShield);
+            AddDirtyRecipe(ItemID.FrostsparkBoots);
+            AddDirtyRecipe(ItemID.MasterNinjaGear);
         }
 		
 		private void AddDirtyRecipe(int itemID, int stack = 1){
