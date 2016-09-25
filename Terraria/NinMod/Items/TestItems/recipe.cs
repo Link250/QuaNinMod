@@ -38,9 +38,12 @@ namespace NinMod.Items.TestItems
             AddDirtyRecipe(ItemID.Lever);
             AddDirtyRecipe(ItemID.SpelunkerPotion);
             AddDirtyRecipe(ItemID.SpelunkerGlowstick);
+            AddDirtyRecipe(ItemID.EoCShield);
+            AddDirtyRecipe(ItemID.FrostsparkBoots);
+            AddDirtyRecipe(ItemID.MasterNinjaGear);
         }
-
-        private void AddDirtyRecipe(int itemID, int stack = 1){
+		
+		private void AddDirtyRecipe(int itemID, int stack = 1){
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddTile(18);
 			recipe.AddIngredient(ItemID.DirtBlock, 1);
