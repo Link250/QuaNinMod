@@ -11,9 +11,12 @@ using Terraria.ObjectData;
 namespace NinMod.Tiles{
     public class Miner_Block : ModTile{
         HitTile hitTile = new HitTile();
-        double[] lastDrills = new double[1000];
-        bool[] activeDrills = new bool[1000];
+
         int drillTimeout = 100;
+        int drillSize = 0;
+        int spelunkSize = 1;
+        int spelunkEfficiency = 1;
+
         public override void SetDefaults(){
             Main.tileSpelunker[Type] = true;
             Main.tileContainer[Type] = true;
@@ -49,7 +52,7 @@ namespace NinMod.Tiles{
         public override void NumDust(int i, int j, bool fail, ref int num){
             num = 1;
         }
-
+        
         public override bool CanKillTile(int i, int j, ref bool blockDamaged){
             Tile tile = Main.tile[i, j];
             int left = i - (int)(tile.frameX / 18);
@@ -59,8 +62,8 @@ namespace NinMod.Tiles{
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY){
             Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("Miner_Item"));
+            resetDrill(i, j);
             Chest.DestroyChest(i, j);
-            resetDrillActivity(i, j);
         }
 
         public override void RightClick(int i, int j){
@@ -68,7 +71,7 @@ namespace NinMod.Tiles{
             Tile tile = Main.tile[i, j];
             if(tile.frameX == 36 && (tile.frameY % 54) == 18) {
                 int chestIndex = getChestIndex(i, j);
-                if (chestIndex >= 0) activeDrills[chestIndex] = !activeDrills[chestIndex];
+                if (chestIndex >= 0) ModHelper.activeDrills[chestIndex] = !ModHelper.activeDrills[chestIndex];
                 return;
             }
             //            Main.NewText(tile.frameX + ";" + tile.frameY); //debug
@@ -123,6 +126,13 @@ namespace NinMod.Tiles{
         public override void MouseOver(int i, int j){
             Player player = Main.player[Main.myPlayer];
             Tile tile = Main.tile[i, j];
+            if (tile.frameX == 36 && (tile.frameY % 54) == 18) {
+                player.showItemIconText = isActiveDrill(i, j) ? "Turn OFF" : "Turn ON";
+                player.showItemIcon2 = -1;
+                player.noThrow = 2;
+                player.showItemIcon = true;
+                return;
+            }
             int left = i - (int)(tile.frameX / 18);
             int top = j - (int)((tile.frameY % 54) / 18);
             int chest = Chest.FindChest(left, top);
@@ -131,8 +141,8 @@ namespace NinMod.Tiles{
                 player.showItemIconText = Lang.chestType[0];
             }
             else{
-                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Red Chest";
-                if (player.showItemIconText == "Red Chest"){
+                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Basic Miner";
+                if (player.showItemIconText == "Basic Miner"){
                     player.showItemIcon2 = mod.ItemType("Miner_Item");
                     player.showItemIconText = "";
                 }
@@ -152,7 +162,7 @@ namespace NinMod.Tiles{
 
         public override void HitWire(int i, int j) {
             int chestIndex = getChestIndex(i, j);
-            if (chestIndex >= 0) activeDrills[chestIndex] = !activeDrills[chestIndex];
+            if (chestIndex >= 0) ModHelper.activeDrills[chestIndex] = !ModHelper.activeDrills[chestIndex];
         }
 
         public void startDrill(int x, int y){
@@ -162,11 +172,38 @@ namespace NinMod.Tiles{
             int drillX = chestX+1, drillY = chestY+4;
             int chestIndex = Chest.FindChest(chestX, chestY);
             if(chestIndex >= 0) {
-                lastDrills[chestIndex] = Main.time;
+                ModHelper.lastDrills[chestIndex] = Main.time;
                 Chest chest = Main.chest[chestIndex];
-                while (drillY < Main.Map.MaxHeight && WorldGen.TileEmpty(drillX, drillY)) drillY++;
+                bool foundBlock = false;
+                for (; drillY < Main.Map.MaxHeight; drillY++) {
+                    if (WorldGen.TileEmpty(drillX, drillY)) {
+                        for(int dir = -1; dir <= 1 && !foundBlock; dir += 2) {
+                            for(int xOff = dir; Math.Abs(xOff) <= (getSpelunkPower(chestIndex)>0 ? this.spelunkSize : this.drillSize); xOff+=dir) {
+                                if(!WorldGen.TileEmpty(drillX+xOff, drillY)) {
+                                    if(getSpelunkPower(chestIndex) <= 0) {
+                                        drillX += xOff;
+                                        foundBlock = true;
+                                        break;
+                                    } else {
+                                        if(Main.tileSpelunker[Main.tile[drillX+xOff, drillY].type]) {
+                                            drillX += xOff;
+                                            foundBlock = true;
+                                            break;
+                                        } else {
+                                            continue;
+                                        }
+                                    }
+                                } else {
+                                    continue;
+                                }
+                            }
+                        }
+                        if (foundBlock) break;
+                    } else {
+                        break;
+                    }
+                }
                 if (drillY >= Main.Map.MaxHeight) return;
-                int type = Main.tile[drillX, drillY].type;
                 bool foundSpace = false;
                 for (int slot = 0; slot < 50; slot++){
                     Item item = chest.item[slot];
@@ -176,13 +213,13 @@ namespace NinMod.Tiles{
                     }
                 }
                 if (foundSpace) {
-                    MineBlock(drillX, drillY, chest.item[0].pick, chest);
+                    MineBlock(drillX, drillY, chest.item[0].pick, chestIndex);
                     collectDrop(drillX, drillY, chest);
                 }
             }
         }
 
-        public void MineBlock(int x, int y, int pickPower, Chest chest) {
+        public void MineBlock(int x, int y, int pickPower, int chestIndex) {
             this.hitTile.UpdatePosition(Main.tile[x, y].type, x, y);
             int num = 0;
             int tileId = this.hitTile.HitObject(x, y, 1);
@@ -321,6 +358,7 @@ namespace NinMod.Tiles{
                 } else {
                     int num4 = y;
                     bool flag3 = Main.tile[x, num4].active();
+                    if (Main.tileSpelunker[Main.tile[x, num4].type]) ModHelper.spelunkPower[chestIndex]--;
                     WorldGen.KillTile(x, num4, false, false, false);
                     if (Main.netMode == 2) {
                         NetMessage.SendData(17, -1, -1, "", 0, (float)x, (float)num4, 0f, 0, 0, 0);
@@ -372,7 +410,7 @@ namespace NinMod.Tiles{
                 tile.frameY = (short)(tile.frameY % 54 + 54 * (Main.time % 4));
                 if (tile.frameX == 0 && (tile.frameY % 54) == 0) {
                     Dust.NewDust(new Vector2(i * 16 + 23, j * 16 + 50), 1, 1, 0);
-                    if (lastDrills[getChestIndex(i,j)] + drillTimeout <= Main.time) {
+                    if (ModHelper.lastDrills[getChestIndex(i,j)] + drillTimeout <= Main.time) {
                         startDrill(i, j);
                     }
                 }
@@ -382,11 +420,12 @@ namespace NinMod.Tiles{
         }
 
         public bool isActiveDrill(int x, int y) {
-            return activeDrills[getChestIndex(x,y)];
+            return ModHelper.activeDrills[getChestIndex(x,y)];
         }
 
-        public void resetDrillActivity(int x, int y) {
-            activeDrills[getChestIndex(x, y)] = false;
+        public void resetDrill(int x, int y) {
+            ModHelper.activeDrills[getChestIndex(x, y)] = false;
+            ModHelper.spelunkPower[getChestIndex(x, y)] = 0;
         }
 
         public int getChestIndex(int x, int y) {
@@ -394,6 +433,20 @@ namespace NinMod.Tiles{
             int chestX = x - (int)(tile.frameX / 18);
             int chestY = y - (int)((tile.frameY % 54) / 18);
             return Chest.FindChest(chestX, chestY);
+        }
+
+        public int getSpelunkPower(int chestIndex) {
+            if(ModHelper.spelunkPower[chestIndex] <= 0) {
+                foreach (Item item in Main.chest[chestIndex].item) {
+                    if (item.type == ItemID.SpelunkerPotion || item.type == ItemID.SpelunkerGlowstick) {
+                        ModHelper.spelunkPower[chestIndex] += (short)((item.type == ItemID.SpelunkerPotion ? 50 : 10)*this.spelunkEfficiency);
+                        item.stack--;
+                        if (item.stack <= 0) item.SetDefaults();
+                        break;
+                    }
+                }
+            }
+            return ModHelper.spelunkPower[chestIndex];
         }
     }
 }

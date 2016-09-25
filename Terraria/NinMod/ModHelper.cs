@@ -7,7 +7,12 @@ namespace NinMod
 {
 	public static class ModHelper
 	{
-		public static Microsoft.Xna.Framework.Vector2[] evenArc(float speedX,  float speedY, int angle, int num)
+        //these three arrays are only for Miner Blocks
+        public static double[] lastDrills = new double[1000];
+        public static bool[] activeDrills = new bool[1000];
+        public static short[] spelunkPower = new short[1000];
+
+        public static Microsoft.Xna.Framework.Vector2[] evenArc(float speedX,  float speedY, int angle, int num)
         {
             var posArray = new Microsoft.Xna.Framework.Vector2[num];
             float spread = (float)(angle * 0.00642925);

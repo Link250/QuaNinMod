@@ -35,9 +35,12 @@ namespace NinMod.Items.TestItems
             AddDirtyRecipe(ItemID.Wire);
             AddDirtyRecipe(ItemID.MulticolorWrench);
             AddDirtyRecipe(ItemID.RedPressurePlate);
+            AddDirtyRecipe(ItemID.Lever);
+            AddDirtyRecipe(ItemID.SpelunkerPotion);
+            AddDirtyRecipe(ItemID.SpelunkerGlowstick);
         }
-		
-		private void AddDirtyRecipe(int itemID, int stack = 1){
+
+        private void AddDirtyRecipe(int itemID, int stack = 1){
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddTile(18);
 			recipe.AddIngredient(ItemID.DirtBlock, 1);
