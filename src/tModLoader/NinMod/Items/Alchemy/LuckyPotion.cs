@@ -29,16 +29,14 @@ namespace NinMod.Items.Alchemy
 			item.buffTime = 600;  
 			item.healLife = 7;
             return;
+            
         }
-
 		public override bool CanUseItem(Player player){
-            return player.FindBuffIndex(21) == -1;
-        }
-
+        return player.FindBuffIndex(21) == -1;}
 		public override bool UseItem(Player player){
-		    int[] randBuff = {22,196,195,148,5,6,7,42,58,63,114,112,113,94,70,100,97};
-		    player.AddBuff(randBuff[(int)(Main.rand.NextFloat()*17)], 2700, true);
-		    return true;
+		int[] randBuff = {22,196,195,148,5,6,7,42,58,63,114,112,113,94,70,100,97};
+		player.AddBuff(randBuff[(int)(Main.rand.NextFloat()*17)], 2700, true);
+		return true;
 		}
 		
         public override void AddRecipes()

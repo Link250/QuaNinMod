@@ -21,7 +21,7 @@ namespace NinMod.Items.Projectiles
             projectile.friendly = false;   
             projectile.ignoreWater = true;  
             Main.projFrames[projectile.type] = 1; 
-            projectile.timeLeft = 3600;  
+            projectile.timeLeft = 3000;  
             projectile.penetrate = -1; 
             projectile.tileCollide = true; 
             projectile.sentry = true; 
@@ -38,7 +38,7 @@ namespace NinMod.Items.Projectiles
         {
  
             
-            projectile.rotation += 0.2f;  
+            projectile.rotation += 0.1f;  
  
             for (int i = 0; i < 200; i++)
             {
@@ -60,7 +60,7 @@ namespace NinMod.Items.Projectiles
                         
                         shootToX *= distance * 3;
                         shootToY *= distance * 3;
-                        int damage = 7;  
+                        int damage = 5;  
 						
                         Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, shootToX, shootToY, 14, damage, 0, Main.myPlayer, 0f, 0f); 
                         Main.PlaySound(28, (int)projectile.position.X, (int)projectile.position.Y, 24); 

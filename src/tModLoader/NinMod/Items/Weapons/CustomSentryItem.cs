@@ -11,8 +11,8 @@ namespace NinMod.Items.Weapons     ///We need this to basically indicate the fol
  
         public override void SetDefaults()
         {
-            item.name = "Custom Sentry"; 
-            item.damage = 6; 
+            item.name = "Sentry Staff"; 
+            item.damage = 5; 
             item.mana = 12;  
             item.width = 56; 
             item.height = 56;   
@@ -23,7 +23,7 @@ namespace NinMod.Items.Weapons     ///We need this to basically indicate the fol
             item.noMelee = true; 
             item.knockBack = 2.5f;  
             item.value = Item.buyPrice(0, 10, 0, 0); 
-            item.rare = 8;  
+            item.rare = 4;  
             item.UseSound = SoundID.Item44; 
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("CustomSentryProj");   
@@ -49,9 +49,13 @@ namespace NinMod.Items.Weapons     ///We need this to basically indicate the fol
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(2, 1);
-			recipe.SetResult(this);
-			recipe.AddTile(18);
+			recipe.AddIngredient(98, 1);
+            recipe.AddIngredient(117, 12);
+            recipe.AddIngredient(3619, 1);
+            recipe.AddIngredient(530, 20);
+            recipe.AddIngredient(97, 100);
+            recipe.SetResult(this);
+			recipe.AddTile(221);
 			recipe.AddRecipe();
 		}
     }
