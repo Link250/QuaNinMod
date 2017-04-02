@@ -6,9 +6,10 @@
 .vscode
 bin/
 Extensions/
-Terraria/Terraria/
+tModLoader/Terraria/
 Terraria.*/
-Terraria/Properties/
+tModLoader/Properties/
+NATUPNPLib/
 *.dll
 
 
