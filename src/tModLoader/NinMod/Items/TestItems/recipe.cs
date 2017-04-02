@@ -8,6 +8,7 @@ namespace NinMod.Items.TestItems
 {
 	public class recipe : ModItem
 	{
+        static Boolean enabled = false;
 		public override void AddRecipes()
 		{
 			AddDirtyRecipe(ItemID.DirtBlock, 99);
@@ -45,11 +46,13 @@ namespace NinMod.Items.TestItems
         }
 		
 		private void AddDirtyRecipe(int itemID, int stack = 1){
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddTile(18);
-			recipe.AddIngredient(ItemID.DirtBlock, 1);
-			recipe.SetResult(itemID, stack);
-			recipe.AddRecipe();
+            if (enabled) {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddTile(18);
+                recipe.AddIngredient(ItemID.DirtBlock, 1);
+                recipe.SetResult(itemID, stack);
+                recipe.AddRecipe();
+            }
 		}
 	}
 }
