@@ -6,10 +6,13 @@
 .vscode
 bin/
 Extensions/
-tModLoader/Terraria/
+Terraria/
 Terraria.*/
-tModLoader/Properties/
+Properties/
 NATUPNPLib/
+App.config
+Icon.ico
+Terraria.csproj
 *.dll
 
 
