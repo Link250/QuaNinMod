@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
  
  
-namespace NinMod.Items.Weapons     ///We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
+namespace NinMod.Items.Weapons  
 {
     public class CustomSentryItem : ModItem
     {
