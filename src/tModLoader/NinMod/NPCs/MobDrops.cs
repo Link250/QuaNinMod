@@ -12,7 +12,7 @@ namespace ModGlobalNPC.NPCs
 
           // Frostmourne
           if (npc.type == NPCID.IceQueen){
-            if (Main.rand.next(66) == 0) {
+            if (Main.rand.Next(66) == 0) {
               Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Frostmourne"), 1);
             }
           }
