@@ -8,9 +8,9 @@ using Terraria.GameContent;
 using Terraria.GameContent.Achievements;
 using Terraria.Graphics.Shaders;
 
-namespace NinMod.Items.Weapons
-{
-	public class Ignis : ModItem
+namespace NinMod.Items.Weapons.Melee 
+    {
+    public class Ignis : ModItem
 	{
 		public override void SetDefaults()
 		{

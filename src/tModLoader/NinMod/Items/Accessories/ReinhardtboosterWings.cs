@@ -10,7 +10,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.Achievements;
 using Terraria.Graphics.Shaders;
 
-namespace NinMod.Items.Acc
+namespace NinMod.Items.Accessories
 {
     public class ReinhardtboosterWings : ModItem
     {

@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.Achievements;
 using Terraria.Graphics.Shaders;
 
-namespace NinMod.Items.TestItems
+namespace NinMod.TestItems
 {
 	public class TestSword : ModItem
 	{

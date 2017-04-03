@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
  
  
-namespace NinMod.Items.Weapons  
+namespace NinMod.Items.Weapons.Summon 
 {
     public class CustomSentryItem : ModItem
     {

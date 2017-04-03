@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace NinMod.Items.Armor.electrum
+namespace NinMod.Items.Armor.Electrum
 {
     public class Electrumleggings : ModItem
     {

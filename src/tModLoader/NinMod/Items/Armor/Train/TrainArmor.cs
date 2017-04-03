@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace NinMod.Items.Armor
+namespace NinMod.Items.Armor.Train
 {
     public class TrainArmor : ModItem
     {

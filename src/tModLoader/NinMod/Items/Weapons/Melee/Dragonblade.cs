@@ -8,8 +8,8 @@ using Terraria.GameContent;
 using Terraria.GameContent.Achievements;
 using Terraria.Graphics.Shaders;
 
-namespace NinMod.Items.Weapons
-{
+namespace NinMod.Items.Weapons.Melee
+    {
     public class Dragonblade : ModItem
     {
         public override void SetDefaults()

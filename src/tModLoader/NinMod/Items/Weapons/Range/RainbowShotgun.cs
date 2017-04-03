@@ -4,8 +4,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NinMod.Items.Weapons
-{
+namespace NinMod.Items.Weapons.Range
+    {
 	public class RainbowShotgun : ModItem
 	{
 

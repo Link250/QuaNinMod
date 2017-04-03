@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NinMod.Items.blocks
+namespace NinMod.Items.Placeables
 {
 	public class AlloySmelter : ModItem
 	{

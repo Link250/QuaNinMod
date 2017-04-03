@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NinMod.Items.Projectiles
+namespace NinMod.Projectiles
 {
     public class Magmapeakproj : ModProjectile
     {

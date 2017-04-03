@@ -5,8 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace NinMod.Items.Armor
-{
+namespace NinMod.Items.Armor.Train {
     public class TrainPantsu : ModItem
     {
         public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)

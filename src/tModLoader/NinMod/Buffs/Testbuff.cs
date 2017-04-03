@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
  
-namespace NinMod.Items.Buffs
+namespace NinMod.Buffs
 {
     public class Testbuff : ModBuff
     {

@@ -10,7 +10,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace NinMod.Items.TestItems
+namespace NinMod.TestItems
 {
 	public class Projectile_test : ModProjectile
 	{

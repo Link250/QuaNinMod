@@ -8,8 +8,8 @@ using Terraria.GameContent;
 using Terraria.GameContent.Achievements;
 using Terraria.Graphics.Shaders;
 
-namespace NinMod.Items.Weapons
-{
+namespace NinMod.Items.Weapons.Magic
+    {
 	public class Manabomb : ModItem
 	{
 		public override void SetDefaults()

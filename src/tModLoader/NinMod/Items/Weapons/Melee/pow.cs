@@ -8,9 +8,9 @@ using Terraria.GameContent;
 using Terraria.GameContent.Achievements;
 using Terraria.Graphics.Shaders;
 
-namespace NinMod.Items.Weapons
-{
-	public class pow : ModItem
+namespace NinMod.Items.Weapons.Melee 
+    {
+    public class pow : ModItem
 	{
 		public override void SetDefaults()
 		{

@@ -1,8 +1,7 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NinMod.Items.blocks
-{
+namespace NinMod.Items.Placeables {
     public class Miner_Item : ModItem
     {
         public override void SetDefaults()

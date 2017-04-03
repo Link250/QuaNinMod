@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NinMod.Items.TestItems
+namespace NinMod.TestItems
 {
 	public class d : ModItem
 	{

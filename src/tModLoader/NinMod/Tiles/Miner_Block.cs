@@ -151,8 +151,20 @@ namespace NinMod.Tiles{
         }
 
         public override void HitWire(int i, int j) {
-            int chestIndex = getChestIndex(i, j);
-            if (chestIndex >= 0) activeDrills[chestIndex] = !activeDrills[chestIndex];
+            Tile tile = Main.tile[i, j];
+//            if (isActiveDrill(i,j)) {
+                tile.frameY = (short)(tile.frameY % 54 + 54 * (Main.time % 4));
+                if (tile.frameX == 0 && (tile.frameY % 54) == 0) {
+                    Dust.NewDust(new Vector2(i * 16 + 23, j * 16 + 50), 1, 1, 0);
+                    if (lastDrills[getChestIndex(i,j)] + drillTimeout <= Main.time) {
+                        startDrill(i, j);
+                    }
+                }
+//            } else {
+                tile.frameY = (short)(tile.frameY % 54 + 54 * 4);
+//            }
+            //            int chestIndex = getChestIndex(i, j);
+            //            if (chestIndex >= 0) activeDrills[chestIndex] = !activeDrills[chestIndex];
         }
 
         public void startDrill(int x, int y){
@@ -367,7 +379,7 @@ namespace NinMod.Tiles{
         }
 
         public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor) {
-            Tile tile = Main.tile[i, j];
+/*            Tile tile = Main.tile[i, j];
             if (isActiveDrill(i,j)) {
                 tile.frameY = (short)(tile.frameY % 54 + 54 * (Main.time % 4));
                 if (tile.frameX == 0 && (tile.frameY % 54) == 0) {
@@ -378,7 +390,7 @@ namespace NinMod.Tiles{
                 }
             } else {
                 tile.frameY = (short)(tile.frameY % 54 + 54 * 4);
-            }
+            }*/
         }
 
         public bool isActiveDrill(int x, int y) {

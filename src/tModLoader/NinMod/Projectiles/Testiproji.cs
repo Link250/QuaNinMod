@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace NinMod.Items.Projectiles
+namespace NinMod.Projectiles
 {
     public class Testiproji : ModProjectile
     {
