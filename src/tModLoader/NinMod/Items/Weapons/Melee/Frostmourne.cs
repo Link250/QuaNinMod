@@ -27,7 +27,7 @@ namespace NinMod.Items.Weapons.Melee {
     }
 
     public override void GetWeaponDamage(Player player, ref int damage){
-      item.damage = damage + player.statLife / 2;
+      damage += player.statLife / 2;
     }
   }
 }
