@@ -13,7 +13,7 @@ namespace NinMod.Items.TestItems {
         public override void OpenVanillaBag(string context, Player player, int arg) {
             if(context == "bossBag" && arg == 3324) {
                 //TODO add new boss drop in Wall Of Flesh Tresure Bag
-//                Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, ItemID.DirtBlock);
+//                player.QuickSpawnItem(ItemID.DirtBlock, 1);
             }
         }
     }
