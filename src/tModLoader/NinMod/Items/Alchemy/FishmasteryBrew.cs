@@ -42,7 +42,6 @@ namespace NinMod.Items.Alchemy
             recipe.AddTile(13);
 			recipe.AddTile(355);
 			recipe.SetResult(this);
-			recipe.AddIngredient(75);
 			recipe.AddRecipe();
 		}
 		
