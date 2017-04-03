@@ -1,3 +1,0 @@
-item.UseSound = SoundID.Item
-
-ignis debuggen

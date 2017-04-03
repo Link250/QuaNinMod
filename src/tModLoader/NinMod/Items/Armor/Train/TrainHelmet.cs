@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace NinMod.Items.Armor
 {
-    public class Testhelmet : ModItem
+    public class TrainHelmet : ModItem
     {
         public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
         {
