@@ -1,0 +1,8 @@
+﻿MinerBlock :
+	-andere Tiers (Iron/Wood ; HardMode; Luminite; Calamity?)
+	-chest sync
+	-state sync
+	-gfx glitch
+	-item textur[en]
+
+
