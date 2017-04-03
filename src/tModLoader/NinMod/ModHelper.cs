@@ -96,5 +96,10 @@ namespace NinMod
 				}
 			}return false;
 		}
+
+        public static Player getPlayerOnPosition(int PosX, int PosY) {
+
+            return null;
+        }
 	}	
 }
