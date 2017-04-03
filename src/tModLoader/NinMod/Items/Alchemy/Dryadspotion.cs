@@ -23,14 +23,16 @@ namespace NinMod.Items.Alchemy
             item.width = 20;
             item.height = 28;
             item.toolTip = "A mixture that gives you the blessings of the dryad";
-            item.value = 100;                
+            item.value = 100;
+            item.buffTime = 10800;
             item.rare = 1;
             return;
         }
 		
-		public override bool UseItem(Player player){
+	    public override bool UseItem(Player player){
 		player.AddBuff(165, 10800, true);
-		return true;
+
+            return true;
 		}
 		
         public override void AddRecipes()

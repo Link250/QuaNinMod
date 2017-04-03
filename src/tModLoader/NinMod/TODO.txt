@@ -5,4 +5,13 @@
 	-gfx glitch
 	-item textur[en]
 
+Enemies :
+	-Jungle enemy, hardmode
+	-Hell enemy, pre hardmode
+
+Weapons :
+	-Mehr Magie
+	-Mehr Melee
+	-Mehr Summon
+
 
