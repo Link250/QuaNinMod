@@ -11,7 +11,7 @@ namespace NinMod.Items.Weapons.Melee {
     public override void SetDefaults(){
       item.name = "Frostmourne";
       item.toolTip = "Runeblade of Ner'zhul, the Lich King, later wielded by Arthas.\nWhomsoever takes up this blade shall wield power eternal.\nJust as the blade rends flesh, so must power scar the spirit.";
-      item.toolTip2 = "Missing Health increases Damage greatly.\nHeals for % of Damage dealt, falls off with more HP.";
+      item.toolTip2 = "Missing Health increases Damage greatly.\nHeals for up to 50HP, falls off with more HP.";
       item.melee = true;
       item.damage = 44;
       item.knockBack = 8.0f;
@@ -37,16 +37,27 @@ namespace NinMod.Items.Weapons.Melee {
 
     public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit){
       float hpp = (float) player.statLife / player.statLifeMax2;
-      int heal = (int) (50 * (1 - hpp));
+      int heal = target.lifeMax >= 5 ? (int) (50 * (1 - hpp)) : 0;
 
-      player.statLife += heal;
-      if (Main.myPlayer == player.whoAmI)
-      {
-        player.HealEffect(heal, true);
+      if (heal > 0) {
+        player.statLife += heal;
+        if (Main.myPlayer == player.whoAmI)
+        {
+          player.HealEffect(heal, true);
+        }
+        if (player.statLife > player.statLifeMax2)
+        {
+          player.statLife = player.statLifeMax2;
+        }
       }
-      if (player.statLife > player.statLifeMax2)
-      {
-        player.statLife = player.statLifeMax2;
+    }
+
+    public override void OpenVanillaBag(string context, Player player, int arg) {
+      if (context == "bossBag" && arg == 3332) {
+        if (Main.rand.Next(9) == 0)
+  			{
+  				player.QuickSpawnItem(mod.ItemType("Frostmourne"));
+  			}
       }
     }
   }
