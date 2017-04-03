@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace NinMod.Items.TestItems {
-    public class ModGlobalItem : GlobalItem {
+    public class GlobalItem : Terraria.ModLoader.GlobalItem {
 
         public override void OpenVanillaBag(string context, Player player, int arg) {
             if(context == "bossBag" && arg == 3324) {
