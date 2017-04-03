@@ -32,12 +32,12 @@ namespace NinMod.Items.Weapons.Melee {
       // x15 max dmg
       // x10 avg
       // x5 min
-      damage = item.damage * multiplier;
+      damage = damage * multiplier;
     }
 
     public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit){
       float hpp = (float) player.statLife / player.statLifeMax2;
-      int heal = target.lifeMax >= 5 ? (int) (50 * (1 - hpp)) : 0;
+      int heal = target.lifeMax >= 5 ? (int) (25 * (1 - hpp)) : 0;
 
       if (heal > 0) {
         player.statLife += heal;
