@@ -15,7 +15,7 @@ namespace NinMod.Buffs
         }
         public override void Update(Player player, ref int buffIndex)
         {
-            player.fishingSkill += 16;
+            player.fishingSkill += 30;
             player.sonarPotion = true;
             player.cratePotion = true;
 

@@ -34,8 +34,11 @@ namespace NinMod.Items.Alchemy
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ModLoader.GetMod("NinMod").GetItem("Basepotionplus"));
-            recipe.AddIngredient(287, 3);
-            recipe.AddIngredient(3197, 3);
+            recipe.AddIngredient(2356, 1);
+            recipe.AddIngredient(2355, 1);
+            recipe.AddIngredient(2354, 1);
+            recipe.AddIngredient(3191, 1);
+            recipe.AddIngredient(2676, 1);
             recipe.AddTile(13);
 			recipe.AddTile(355);
 			recipe.SetResult(this);
