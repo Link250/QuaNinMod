@@ -51,14 +51,5 @@ namespace NinMod.Items.Weapons.Melee {
         }
       }
     }
-
-    public override void OpenVanillaBag(string context, Player player, int arg) {
-      if (context == "bossBag" && arg == 3332) {
-        if (Main.rand.Next(9) == 0)
-  			{
-  				player.QuickSpawnItem(mod.ItemType("Frostmourne"));
-  			}
-      }
-    }
   }
 }

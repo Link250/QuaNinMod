@@ -15,6 +15,14 @@ namespace NinMod.GlobalItems {
                 //TODO add new boss drop in Wall Of Flesh Tresure Bag
 //                player.QuickSpawnItem(ItemID.DirtBlock, 1);
             }
+            // Moon Lord
+            if (context == "bossBag" && arg == 3332) {
+              if (Main.rand.Next(9) == 0)
+              {
+                // Frostmourne
+                player.QuickSpawnItem(mod.ItemType("Frostmourne"));
+              }
+            }
         }
     }
 }
