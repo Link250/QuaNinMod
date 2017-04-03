@@ -29,12 +29,12 @@ namespace NinMod.NPCs.Monster
 			aiType = 421;
 			animationType = 421;
 		}
-		
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
-		{
-			return Main.rand.Next(15)==0 && ModHelper.playerNearSolar(spawnInfo.) ? 1f : 0f;
-		}
-		
+
+		// public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		// {
+		// 	return Main.rand.Next(15)==0 && ModHelper.playerNearSolar(spawnInfo.) ? 1f : 0f;
+		// }
+
 		public override void HitEffect(int hitDirection, double damage)
 		{
 
