@@ -16,7 +16,7 @@ namespace NinMod.Items.Weapons.Melee {
       item.damage = 44;
       item.knockBack = 8.0f;
       item.useTime = 31;
-      item.animation = 31;
+      item.useAnimation = 31;
       item.useStyle = 1;
       item.UseSound = SoundID.Item1;
       item.width = 37;
