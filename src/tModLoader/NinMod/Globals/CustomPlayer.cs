@@ -17,11 +17,11 @@ namespace NinMod {
     public float holyPower;
 
     public override void ResetEffects(){
-      holyPower = 0.0f;
+      holyPower = 1f;
     }
 
     public override void UpdateDead(){
-      holyPower = 0.0f;
+      holyPower = 1f;
     }
   }
 }
