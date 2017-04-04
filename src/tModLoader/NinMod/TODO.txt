@@ -16,5 +16,8 @@ Weapons :
 	-Frostmourne
 		+Todesgriff
 
-classes :
+Armor :
+	-Armor of Debugging
+
+Classes :
 	-Mehr Heal
