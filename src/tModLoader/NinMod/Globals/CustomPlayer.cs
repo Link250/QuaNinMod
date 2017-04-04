@@ -16,7 +16,7 @@ namespace NinMod {
   public class CustomPlayer : ModPlayer {
     public float holyPower;
 
-    public override void SetDefaults(){
+    public override void ResetEffects(){
       holyPower = 0.0f;
     }
 
