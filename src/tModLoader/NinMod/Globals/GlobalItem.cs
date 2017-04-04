@@ -12,8 +12,9 @@ namespace NinMod.GlobalItems {
 
         public override void OpenVanillaBag(string context, Player player, int arg) {
             if(context == "bossBag" && arg == 3324) {
-                //TODO add new boss drop in Wall Of Flesh Tresure Bag
-//                player.QuickSpawnItem(ItemID.DirtBlock, 1);
+              if (Main.rand.Next(9) == 0) {
+                player.QuickSpawnItem(mod.ItemType("HolyEmblem"));
+              }
             }
             // Moon Lord
             if (context == "bossBag" && arg == 3332) {
