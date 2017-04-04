@@ -13,7 +13,7 @@ using Terraria.GameInput;
 using Terraria.ModLoader.IO;
 
 namespace NinMod {
-  public class GlobalItem : CustomPlayer {
+  public class CustomPlayer : ModPlayer {
     public float holyPower;
 
     public override void SetDefaults(){
