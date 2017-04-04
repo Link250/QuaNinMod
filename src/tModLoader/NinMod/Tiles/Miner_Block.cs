@@ -11,7 +11,6 @@ using Terraria.ObjectData;
 namespace NinMod.Tiles{
     public class Miner_Block : ModTile{
 
-        HitTile hitTile = new HitTile();
         double[] lastDrills = new double[1000]; // used for drill timeouts
         int drillTimeout = 60*1; // timeout between drills in frames (60 per s)
 
@@ -150,7 +149,7 @@ namespace NinMod.Tiles{
         }
 
         public override void HitWire(int i, int j) {
-            if (lastDrills[getChestIndex(i, j)] + drillTimeout <= Main.time) {
+            if (Math.Abs(lastDrills[getChestIndex(i, j)] - Main.time) >= drillTimeout) {
                 startDrill(i, j);
             }
         }
@@ -183,9 +182,10 @@ namespace NinMod.Tiles{
         }
 
         public void MineBlock(int x, int y, int pickPower, Chest chest) {
-            this.hitTile.UpdatePosition(Main.tile[x, y].type, x, y);
+            HitTile hitTile = new HitTile();
+            hitTile.UpdatePosition(Main.tile[x, y].type, x, y);
             int num = 0;
-            int tileId = this.hitTile.HitObject(x, y, 1);
+            int tileId = hitTile.HitObject(x, y, 1);
             Tile tile = Main.tile[x, y];
             if (Main.tileNoFail[(int)tile.type]) {
                 num = 100;
@@ -251,14 +251,14 @@ namespace NinMod.Tiles{
             if (tile.type == 165 || Main.tileRope[(int)tile.type] || tile.type == 199 || Main.tileMoss[(int)tile.type]) {
                 num = 100;
             }
-            if (this.hitTile.AddDamage(tileId, num, false) >= 100 && (tile.type == 2 || tile.type == 23 || tile.type == 60 || tile.type == 70 || tile.type == 109 || tile.type == 199 || Main.tileMoss[(int)tile.type])) {
+            if (hitTile.AddDamage(tileId, num, false) >= 100 && (tile.type == 2 || tile.type == 23 || tile.type == 60 || tile.type == 70 || tile.type == 109 || tile.type == 199 || Main.tileMoss[(int)tile.type])) {
                 num = 0;
             }
             if (tile.type == 128 || tile.type == 269) {
                 if (tile.frameX == 18 || tile.frameX == 54) {
                     x--;
                     tile = Main.tile[x, y];
-                    this.hitTile.UpdatePosition(tileId, x, y);
+                    hitTile.UpdatePosition(tileId, x, y);
                 }
                 if (tile.frameX >= 100) {
                     num = 0;
@@ -269,12 +269,12 @@ namespace NinMod.Tiles{
                 if (tile.frameY == 0) {
                     y++;
                     tile = Main.tile[x, y];
-                    this.hitTile.UpdatePosition(tileId, x, y);
+                    hitTile.UpdatePosition(tileId, x, y);
                 }
                 if (tile.frameY == 36) {
                     y--;
                     tile = Main.tile[x, y];
-                    this.hitTile.UpdatePosition(tileId, x, y);
+                    hitTile.UpdatePosition(tileId, x, y);
                 }
                 int i = (int)tile.frameX;
                 bool flag = i >= 5000;
@@ -307,8 +307,8 @@ namespace NinMod.Tiles{
             if (!WorldGen.CanKillTile(x, y)) {
                 num = 0;
             }
-            if (this.hitTile.AddDamage(tileId, num, true) >= 100) {
-                this.hitTile.Clear(tileId);
+            if (hitTile.AddDamage(tileId, num, true) >= 100) {
+                hitTile.Clear(tileId);
                 if (Main.netMode == 2 && Main.tileContainer[(int)Main.tile[x, y].type]) {
                     WorldGen.KillTile(x, y, true, false, false);
                     NetMessage.SendData(17, -1, -1, "", 0, (float)x, (float)y, 1f, 0, 0, 0);
@@ -333,7 +333,7 @@ namespace NinMod.Tiles{
                 }
             }
             if (num != 0) {
-                this.hitTile.Prune();
+                hitTile.Prune();
             }
         }
 
@@ -373,18 +373,13 @@ namespace NinMod.Tiles{
 
         }
 
-        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor) {
-//            Main.NewText(Main.time + ";" + lastDrills[getChestIndex(i, j)] + ";" + drillTimeout);
-            Tile tile = Main.tile[i, j];
-//            if ((Main.time - lastDrills[getChestIndex(i, j)]) <= drillTimeout) {
-                tile.frameY = (short)(tile.frameY % 54 + 54 * (Main.time % 4));
-                if (tile.frameX == 0 && (tile.frameY % 54) == 0) {
-                    Dust.NewDust(new Vector2(i * 16 + 23, j * 16 + 50), 1, 1, 0);
-                }
-/*            } else {
-                tile.frameY = (short)(tile.frameY % 54 + 54 * 4);
-            }*/
-        }
+/*        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor) {
+        Tile tile = Main.tile[i, j];
+            tile.frameY = (short)(tile.frameY % 54 + 54 * (Main.time % 4));
+            if (tile.frameX == 0 && (tile.frameY % 54) == 0) {
+                Dust.NewDust(new Vector2(i * 16 + 23, j * 16 + 50), 1, 1, 0);
+            }
+        }*/
 
         public int getChestIndex(int x, int y) {
             Tile tile = Main.tile[x, y];
