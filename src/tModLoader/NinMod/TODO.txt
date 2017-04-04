@@ -13,5 +13,8 @@ Weapons :
 	-Mehr Magie
 	-Mehr Melee
 	-Mehr Summon
+	-Frostmourne
+		+Todesgriff
 
-
+classes :
+	-Mehr Heal
