@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.ModLoader;
 
 namespace NinMod.Items {
-    class CustomItem : ModItem{
+    public abstract class CustomItem : ModItem{
 
         public bool holy = false;
 
