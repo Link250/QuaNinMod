@@ -11,8 +11,11 @@ namespace NinMod.Items {
         public bool holy = false;
 
         public override void GetWeaponDamage(Player player, ref int damage) {
-            base.GetWeaponDamage(player, ref damage);
-            if (holy) {
+            GetWeaponDamageCustom(player, ref damage, this);
+        }
+
+        public void GetWeaponDamageCustom(Player player, ref int damage, CustomItem item) {
+            if (item.holy) {
                 CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
                 damage = (int)(modPlayer.holyPower * damage);
             }

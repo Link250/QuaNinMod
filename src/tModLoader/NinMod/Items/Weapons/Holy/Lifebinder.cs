@@ -28,7 +28,7 @@ namespace NinMod.Items.Weapons.Holy {
 		}
 
     public override void GetWeaponDamage(Player player, ref int damage) {
-      base.GetWeaponDamage(player, ref damage);
+      base.GetWeaponDamageCustom(player, ref damage, this);
       item.toolTip = "Heals for " + damage + " HP";
     }
   }
