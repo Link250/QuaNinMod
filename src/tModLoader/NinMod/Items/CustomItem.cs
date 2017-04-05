@@ -9,6 +9,8 @@ namespace NinMod.Items {
     public abstract class CustomItem : ModItem{
 
         public bool holy = false;
+
+        // Magic Tooltip related stuff
         public override bool CloneNewInstances{
             get { return true; }
         }
