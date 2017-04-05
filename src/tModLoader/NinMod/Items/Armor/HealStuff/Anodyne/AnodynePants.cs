@@ -20,8 +20,8 @@ namespace NinMod.Items.Armor.HealStuff.Anodyne
           item.name = "Anodyne Pants";
           item.maxStack = 1;
           item.defense = 8;
-          item.width = 10;
-          item.height = 8;
+          item.width = 11;
+          item.height = 9;
           item.toolTip = "+30% holy power";
           item.value = 0;
           item.rare = 10;

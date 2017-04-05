@@ -21,8 +21,8 @@ namespace NinMod.Items.Armor.HealStuff.Anodyne
           item.name = "Anodyne Hat";
           item.maxStack = 1;
           item.defense = 6;
-          item.width = 12;
-          item.height = 11;
+          item.width = 16;
+          item.height = 13;
           item.toolTip = "+30% holy power";
           item.value = 0;
           item.rare = 10;

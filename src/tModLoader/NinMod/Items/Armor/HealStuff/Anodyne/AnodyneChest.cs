@@ -20,7 +20,7 @@ namespace NinMod.Items.Armor.HealStuff.Anodyne
           item.name = "Anodyne Chest";
           item.maxStack = 1;
           item.defense = 12;
-          item.width = 15;
+          item.width = 17;
           item.height = 12;
           item.toolTip = "+30% holy power";
           item.value = 0;
