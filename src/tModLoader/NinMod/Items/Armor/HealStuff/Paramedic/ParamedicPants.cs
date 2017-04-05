@@ -11,26 +11,26 @@ namespace NinMod.Items.Armor.HealStuff.Paramedic
     {
         public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
         {
-            equips.Add(EquipType.Legs);
-            return true;
+          equips.Add(EquipType.Legs);
+          return true;
         }
 
         public override void SetDefaults()
         {
-            item.name = "Paramedic's Pants";
-            item.maxStack = 1;
-            item.defense = 5;
-            item.width = 10;
-            item.height = 8;
-            item.toolTip = "+5% holy power";
-            item.value = 0;
-            item.rare = 10;
+          item.name = "Paramedic's Pants";
+          item.maxStack = 1;
+          item.defense = 5;
+          item.width = 10;
+          item.height = 8;
+          item.toolTip = "+10% holy power";
+          item.value = 0;
+          item.rare = 10;
         }
 
         public override void UpdateEquip(Player player)
         {
           CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
-          modPlayer.holyPower *= 2.05f;
+          modPlayer.holyPower *= 1.1f;
         }
     }
 }

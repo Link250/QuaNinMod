@@ -22,7 +22,7 @@ namespace NinMod.Items.Accessories.HealStuff {
     public override void UpdateAccessory(Player player, bool hideVisual)
   	{
   		CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
-  		modPlayer.holyPower *= 2.15f;
+  		modPlayer.holyPower *= 1.15f;
   	}
   }
 }

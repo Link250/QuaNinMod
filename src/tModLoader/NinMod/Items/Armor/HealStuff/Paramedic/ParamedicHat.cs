@@ -11,40 +11,40 @@ namespace NinMod.Items.Armor.HealStuff.Paramedic
     {
         public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
         {
-            equips.Add(EquipType.Head);
-            return true;
+          equips.Add(EquipType.Head);
+          return true;
         }
 
         public override void SetDefaults()
         {
-            item.name = "Paramedic's Hat";
-            item.maxStack = 1;
-            item.defense = 5;
-            item.width = 12;
-            item.height = 11;
-            item.toolTip = "+5% holy power";
-            item.value = 0;
-            item.rare = 10;
+          item.name = "Paramedic's Hat";
+          item.maxStack = 1;
+          item.defense = 5;
+          item.width = 12;
+          item.height = 11;
+          item.toolTip = "+10% holy power";
+          item.value = 0;
+          item.rare = 10;
         }
 
         public override void UpdateEquip(Player player)
         {
           CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
-          modPlayer.holyPower *= 2.05f;
+          modPlayer.holyPower *= 1.1f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return head.type == mod.ItemType("ParamedicHat") && body.type == mod.ItemType("ParamedicChest") && legs.type == mod.ItemType("ParamedicPants");
+          return head.type == mod.ItemType("ParamedicHat") && body.type == mod.ItemType("ParamedicChest") && legs.type == mod.ItemType("ParamedicPants");
         }
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Paramedic\n+80 mana\nIncreased mana regeneration below 50% HP.";
-            player.statManaMax2 += 80;
-            if(player.statLife <= (player.statLifeMax2 * 0.5f)) {
-              player.manaRegenBonus += 7;
-            }
+          player.setBonus = "Paramedic\n+80 mana\nIncreased mana regeneration below 50% HP.";
+          player.statManaMax2 += 80;
+          if(player.statLife <= (player.statLifeMax2 * 0.5f)) {
+            player.manaRegenBonus += 7;
+          }
         }
     }
 }
