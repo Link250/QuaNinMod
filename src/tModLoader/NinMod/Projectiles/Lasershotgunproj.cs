@@ -10,18 +10,23 @@ namespace NinMod.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(440);
             projectile.name = "lasy";
-            aiType = 440;
+            projectile.width = 32;
+            projectile.height = 32;
+//            projectile.aiStyle = 1;
+            projectile.friendly = true;
+            projectile.alpha = 100;
+            projectile.extraUpdates = 2;
+            projectile.scale = 1f;
+            projectile.timeLeft = 600;
+            projectile.magic = true;
+            projectile.ignoreWater = true;
             projectile.penetrate = 2;
-            Main.projFrames[projectile.type] = 1;
-            projectile.rotation += 0.7f;
-           
+            projectile.Hitbox = new Rectangle(0, 0, 32, 32);
         }
         public override void AI()
         {
-            projectile.rotation += 0.7f;
-            
+            projectile.rotation -= 0.4f;
         }
         public override bool PreKill(int timeLeft)
         {
