@@ -42,7 +42,7 @@ namespace NinMod.Items.Armor.HealStuff.Anodyne
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Anodyne\n+100 mana";
-            player.statManaMax2 += 80;
+            player.statManaMax2 += 100;
         }
     }
 }
