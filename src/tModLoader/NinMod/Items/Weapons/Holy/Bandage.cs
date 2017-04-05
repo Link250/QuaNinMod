@@ -3,24 +3,23 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using NinMod.Items;
 
 namespace NinMod.Items.Weapons.Holy {
-  public class Bandage : ModItem {
+  public class Bandage : CustomItem {
     public override void SetDefaults() {
 			item.name = "Bandage";
-			item.damage = 12;
-			item.magic = true;
+            this.holy = true;
+			item.damage = 3;
 			item.crit = 2;
 			item.mana = 3;
 			item.width = 32;
 			item.height = 32;
-			item.toolTip = "Heals equal to players holy power";
+			item.toolTip = "Heal amount equal to players holy power";
 			item.useTime = 39;
 			item.useAnimation = 39;
 			item.useStyle = 1;
-			Item.staff[item.type] = true;
 			item.noMelee = true;
-			item.knockBack = -10;
 			item.value = 000010;
 			item.rare = 5;
 			item.UseSound = SoundID.Item20;
@@ -29,21 +28,23 @@ namespace NinMod.Items.Weapons.Holy {
 			item.shootSpeed = 40.0f;
 		}
 
+        public override void GetWeaponDamage(Player player, ref int damage) {
+          base.GetWeaponDamage(player, ref damage);
+        }
+
     public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
-      CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
-      int heal = (int) (modPlayer.holyPower * 12);
-      if (heal > 0) {
-        player.statLife += heal;
-        if (Main.myPlayer == player.whoAmI)
-        {
-          player.HealEffect(heal, true);
+        CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
+        int heal = (int) (modPlayer.holyPower * damage);
+        if (heal > 0) {
+            player.statLife += heal;
+            if (Main.myPlayer == player.whoAmI) {
+                player.HealEffect(heal, true);
+            }
+            if (player.statLife > player.statLifeMax2) {
+                player.statLife = player.statLifeMax2;
+            }
         }
-        if (player.statLife > player.statLifeMax2)
-        {
-          player.statLife = player.statLifeMax2;
-        }
-      }
-			return false;
-		}
+        return false;
+    }
   }
 }

@@ -10,7 +10,6 @@ namespace NinMod.Items.Weapons.Holy {
     public override void SetDefaults() {
 			item.name = "The Lifebinder";
             this.holy = true;
-            Main.NewText(this.holy + ";");
             item.damage = 12;
             item.mana = 3;
             item.width = 23;
