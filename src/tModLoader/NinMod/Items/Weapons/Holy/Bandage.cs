@@ -34,11 +34,10 @@ namespace NinMod.Items.Weapons.Holy {
 
     public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
         CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
-        int heal = (int) (modPlayer.holyPower * damage);
-        if (heal > 0) {
-            player.statLife += heal;
+        if (damage > 0) {
+            player.statLife += damage;
             if (Main.myPlayer == player.whoAmI) {
-                player.HealEffect(heal, true);
+                player.HealEffect(damage, true);
             }
             if (player.statLife > player.statLifeMax2) {
                 player.statLife = player.statLifeMax2;
