@@ -10,7 +10,8 @@ namespace NinMod.Items.Weapons.Holy {
     public override void SetDefaults() {
 			item.name = "The Lifebinder";
             this.holy = true;
-			item.damage = 12;
+            Main.NewText(this.holy + ";");
+            item.damage = 12;
             item.mana = 3;
             item.width = 23;
 			item.height = 23;
@@ -28,8 +29,7 @@ namespace NinMod.Items.Weapons.Holy {
 		}
 
     public override void GetWeaponDamage(Player player, ref int damage) {
-      base.GetWeaponDamageCustom(player, ref damage, this);
-      item.toolTip = "Heals for " + damage + " HP";
+      base.GetWeaponDamage(player, ref damage);
     }
   }
 }

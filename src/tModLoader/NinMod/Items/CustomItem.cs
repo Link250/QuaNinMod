@@ -11,13 +11,19 @@ namespace NinMod.Items {
         public bool holy = false;
 
         public override void GetWeaponDamage(Player player, ref int damage) {
-            GetWeaponDamageCustom(player, ref damage, this);
-        }
-
-        public void GetWeaponDamageCustom(Player player, ref int damage, CustomItem item) {
-            if (item.holy) {
+            Main.NewText(this.holy + ";");
+            if (this.holy) {
                 CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
                 damage = (int)(modPlayer.holyPower * damage);
+            }
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            base.ModifyTooltips(tooltips);
+            if (this.holy) {
+                int dmgIndex = tooltips.FindIndex(x => x.Name == "Damage");
+                tooltips[dmgIndex].text = tooltips[dmgIndex].text.Split(' ')[0] + " holy power";
+                tooltips.RemoveAll(x => x.Name == "Knockback");
             }
         }
     }
