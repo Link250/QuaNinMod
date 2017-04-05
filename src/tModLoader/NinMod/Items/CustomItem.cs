@@ -9,9 +9,11 @@ namespace NinMod.Items {
     public abstract class CustomItem : ModItem{
 
         public bool holy = false;
+        public override bool CloneNewInstances{
+            get { return true; }
+        }
 
         public override void GetWeaponDamage(Player player, ref int damage) {
-            Main.NewText(this.holy + ";");
             if (this.holy) {
                 CustomPlayer modPlayer = player.GetModPlayer<CustomPlayer>(mod);
                 damage = (int)(modPlayer.holyPower * damage);
