@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using System.Collections.Generic;
 
 namespace NinMod
 {
@@ -97,9 +98,21 @@ namespace NinMod
 			}return false;
 		}
 
-        public static Player getPlayerOnPosition(int PosX, int PosY) {
-
-            return null;
+        public static List<Player> getPlayersInArea(Vector2 position, int radius) {
+            List < Player > playersFound = new List<Player>();
+            foreach(Player player in Main.player) {
+                float currentRad;
+                if (player.team == Main.player[Main.myPlayer].team && (currentRad = (player.position - position).Length()) <= radius) {
+                    int index = 0;
+                    foreach(Player pl in playersFound) {
+                        if (currentRad < (pl.position - position).Length() )
+                            break;
+                        else index++;
+                    }
+                    playersFound.Insert(index, player);
+                }
+            }
+            return playersFound;
         }
 	}	
 }
