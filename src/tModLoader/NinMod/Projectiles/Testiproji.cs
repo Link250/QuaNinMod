@@ -13,6 +13,7 @@ namespace NinMod.Projectiles
             projectile.CloneDefaults(296);
             projectile.name = "test";
             aiType = 296;
+
         }
 
         public override bool PreKill(int timeLeft)

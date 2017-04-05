@@ -1643,6 +1643,7 @@
     <Compile Include="NinMod\Projectiles\platinumspearproj.cs" />
     <Compile Include="NinMod\Projectiles\Projectile_test1.cs" />
     <Compile Include="NinMod\Projectiles\silverspearproj.cs" />
+    <Compile Include="NinMod\Projectiles\Lasershotgunproj.cs" />
     <Compile Include="NinMod\Projectiles\Testiproji.cs" />
     <Compile Include="NinMod\Projectiles\tinspearproj.cs" />
     <Compile Include="NinMod\Projectiles\tres.cs" />
@@ -3832,6 +3833,7 @@
     <Content Include="NinMod\Projectiles\platinumspearproj.png" />
     <Content Include="NinMod\Projectiles\Projectile_test1.png" />
     <Content Include="NinMod\Projectiles\silverspearproj.png" />
+    <Content Include="NinMod\Projectiles\Lasershotgunproj.png" />
     <Content Include="NinMod\Projectiles\Testiproji.png" />
     <Content Include="NinMod\Projectiles\tinspearproj.png" />
     <Content Include="NinMod\Projectiles\tres.png" />

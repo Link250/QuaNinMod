@@ -23,8 +23,8 @@ namespace NinMod.Items.Weapons.Range
 				speedX = baseSpeed*(float)Math.Sin(randomAngle)* ((Main.rand.NextFloat()*0.2f+0.9f));
 				speedY = baseSpeed*(float)Math.Cos(randomAngle)* ((Main.rand.NextFloat() * 0.2f)+0.9f);
 				
-				Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, 440, damage, 20f, Main.myPlayer);
-				
+				Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("Lasershotgunproj"), damage, 1f, Main.myPlayer);
+                
             }
 			return false;
 		}
@@ -33,7 +33,7 @@ namespace NinMod.Items.Weapons.Range
 		{
 
 			item.crit = 4;
-			item.knockBack = 1.00f;
+			item.knockBack = 0.10f;
 			item.useStyle = 5;
 			item.useAnimation = 34;
 			item.useTime = 34;
@@ -43,20 +43,22 @@ namespace NinMod.Items.Weapons.Range
 			
 			item.useAmmo = AmmoID.Bullet;
 			item.UseSound = SoundID.Item12;
-			item.damage = 24;
-			item.shootSpeed = 9.65f;
+			item.damage = 28;
+			item.shootSpeed = 8.65f;
 			item.noMelee = true;
 			item.value = Item.sellPrice(0, 2, 0, 0);
-			item.rare = 2;
+			item.rare = 4;
 			item.ranged = true;
 			item.shoot = 14;
 			item.toolTip = "Laser Shotgun! Laser Shotgun!";
 			item.autoReuse = true;
+            
+
+        
 
 
 
-
-		}
+    }
 
 		public override void AddRecipes()
 		{

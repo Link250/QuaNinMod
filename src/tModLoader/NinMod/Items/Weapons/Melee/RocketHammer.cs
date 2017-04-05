@@ -45,8 +45,8 @@ namespace NinMod.Items.Weapons.Melee
             }
             else
             {
-                item.useTime = 40;
-                item.useAnimation = 40;
+                item.useTime = 20;
+                item.useAnimation = 20;
                 item.shoot = 0;
                 item.shootSpeed = 0;
             }
