@@ -114,5 +114,13 @@ namespace NinMod
             }
             return playersFound;
         }
+
+        public static void createParticleCircle(Vector2 position, float radius, int density) {
+            Vector2 offset = new Vector2(radius, 0);
+            for(int i = 0; i < density; i++) {
+                offset = offset.RotatedBy(Math.PI * 2 / density);
+                Dust.NewDust(position + offset, 10, 10, DustID.Grass, -offset.X/30, -offset.Y/30);
+            }
+        }
 	}
 }
