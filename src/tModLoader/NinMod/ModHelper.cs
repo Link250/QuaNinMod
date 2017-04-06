@@ -23,75 +23,75 @@ namespace NinMod
             }
             return (Microsoft.Xna.Framework.Vector2[])posArray;
         }
-		
+
 		public static Vector2 rotateByDegree(Vector2 startVector, float rotationDegree = 0f){
 			Vector2 rotationVector = new Vector2((float)Math.Cos(rotationDegree*Math.PI/180),(float)Math.Sin(rotationDegree*Math.PI/180));
 			return new Vector2(startVector.X*rotationVector.X-startVector.Y*rotationVector.Y, startVector.X*rotationVector.Y+startVector.Y*rotationVector.X);
 		}
-		
+
 		public static bool findNPCWithinDistance(int npcType, Vector2 position, int distance){
 			foreach(NPC n in Main.npc){
 				if(n.type == npcType && (new Vector2(n.position.X-position.X, n.position.Y-position.Y)).Length() <= distance) return true;
 			}
 			return false;
 		}
-		
+
 		public static bool playerNearSolar(Player player){
 			foreach(NPC n in Main.npc){
-				if((n.type == NPCID.LunarTowerSolar || 
-				   n.type == NPCID.SolarCorite || 
-				   n.type == NPCID.SolarCrawltipedeBody || 
-				   n.type == NPCID.SolarCrawltipedeHead || 
-				   n.type == NPCID.SolarCrawltipedeTail || 
-				   n.type == NPCID.SolarDrakomire || 
-				   n.type == NPCID.SolarDrakomireRider || 
-				   n.type == NPCID.SolarFlare || 
-				   n.type == NPCID.SolarGoop || 
-				   n.type == NPCID.SolarSolenian || 
-				   n.type == NPCID.SolarSpearman || 
+				if((n.type == NPCID.LunarTowerSolar ||
+				   n.type == NPCID.SolarCorite ||
+				   n.type == NPCID.SolarCrawltipedeBody ||
+				   n.type == NPCID.SolarCrawltipedeHead ||
+				   n.type == NPCID.SolarCrawltipedeTail ||
+				   n.type == NPCID.SolarDrakomire ||
+				   n.type == NPCID.SolarDrakomireRider ||
+				   n.type == NPCID.SolarFlare ||
+				   n.type == NPCID.SolarGoop ||
+				   n.type == NPCID.SolarSolenian ||
+				   n.type == NPCID.SolarSpearman ||
 				   n.type == NPCID.SolarSroller) && player.Distance(n.position) <= 1000){
 					return true;
 				}
 			}return false;
 		}
-		
+
 		public static bool playerNearNebula(Player player){
 			foreach(NPC n in Main.npc){
-				if((n.type == NPCID.LunarTowerNebula || 
-				   n.type == NPCID.NebulaBeast || 
-				   n.type == NPCID.NebulaBrain || 
-				   n.type == NPCID.NebulaHeadcrab || 
+				if((n.type == NPCID.LunarTowerNebula ||
+				   n.type == NPCID.NebulaBeast ||
+				   n.type == NPCID.NebulaBrain ||
+				   n.type == NPCID.NebulaHeadcrab ||
 				   n.type == NPCID.NebulaSoldier) && player.Distance(n.position) <= 1000){
 					return true;
 				}
 			}return false;
 		}
-		
+
 		public static bool playerNearStardust(Player player){
 			foreach(NPC n in Main.npc){
-				if((n.type == NPCID.LunarTowerStardust || 
-				   n.type == NPCID.StardustCellBig || 
-				   n.type == NPCID.StardustCellSmall || 
-				   n.type == NPCID.StardustJellyfishBig || 
-				   n.type == NPCID.StardustJellyfishSmall || 
-				   n.type == NPCID.StardustSoldier || 
-				   n.type == NPCID.StardustSpiderBig || 
-				   n.type == NPCID.StardustSpiderSmall || 
-				   n.type == NPCID.StardustWormBody || 
-				   n.type == NPCID.StardustWormHead || 
+				if((n.type == NPCID.LunarTowerStardust ||
+				   n.type == NPCID.StardustCellBig ||
+				   n.type == NPCID.StardustCellSmall ||
+				   n.type == NPCID.StardustJellyfishBig ||
+				   n.type == NPCID.StardustJellyfishSmall ||
+				   n.type == NPCID.StardustSoldier ||
+				   n.type == NPCID.StardustSpiderBig ||
+				   n.type == NPCID.StardustSpiderSmall ||
+				   n.type == NPCID.StardustWormBody ||
+				   n.type == NPCID.StardustWormHead ||
 				   n.type == NPCID.StardustWormTail) && player.Distance(n.position) <= 1000){
 					return true;
 				}
 			}return false;
 		}
-		
+
 		public static bool playerNearVortex(Player player){
 			foreach(NPC n in Main.npc){
-				if((n.type == NPCID.LunarTowerVortex || 
-				   n.type == NPCID.VortexHornet || 
-				   n.type == NPCID.VortexHornetQueen || 
-				   n.type == NPCID.VortexLarva || 
-				   n.type == NPCID.VortexRifleman || 
+				if((n.type == NPCID.LunarTowerVortex ||
+				   n.type == NPCID.VortexHornet ||
+				   n.type == NPCID.VortexHornetQueen ||
+				   n.type == NPCID.VortexLarva ||
+				   n.type == NPCID.VortexRifleman ||
 				   n.type == NPCID.VortexSoldier) && player.Distance(n.position) <= 1000){
 					return true;
 				}
@@ -99,7 +99,7 @@ namespace NinMod
 		}
 
         public static List<Player> getPlayersInArea(Vector2 position, int radius) {
-            List < Player > playersFound = new List<Player>();
+            List<Player> playersFound = new List<Player>();
             foreach(Player player in Main.player) {
                 float currentRad;
                 if (player.team == Main.player[Main.myPlayer].team && (currentRad = (player.position - position).Length()) <= radius) {
@@ -114,5 +114,5 @@ namespace NinMod
             }
             return playersFound;
         }
-	}	
+	}
 }
