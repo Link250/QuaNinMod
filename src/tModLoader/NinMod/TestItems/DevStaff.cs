@@ -38,7 +38,6 @@ namespace NinMod.TestItems
 		
 		public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type , ref int damage, ref float knockBack)
 		{
-            ModHelper.createParticleCircle(Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY), 300, 1000);
 //			float fireCount = Main.rand.NextFloat()*3+4;
 //			float spread = Main.rand.NextFloat()*10+25;
 //			for (float i = 0; i < fireCount; ++i)
