@@ -9,10 +9,8 @@ namespace NinMod.Dusts {
     class HealDust : ModDust{
         public override void OnSpawn(Dust dust) {
             dust.velocity *= 1f;
-            dust.alpha = 55;
             dust.noGravity = true;
             dust.noLight = true;
-            dust.scale = 1f;
         }
 
         public override bool Update(Dust dust) {

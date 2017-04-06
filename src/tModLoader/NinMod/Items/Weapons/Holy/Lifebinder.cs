@@ -36,23 +36,23 @@ namespace NinMod.Items.Weapons.Holy {
     }
 
     public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
+        private bool healed = false;
         if (damage > 0) {
             Vector2 mouse = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
             List<Player> possibleTargets = ModHelper.getPlayersInArea(mouse, 125);
             if(possibleTargets.Count > 0) {
                 foreach (Player pl in possibleTargets) {
                     if(pl.statLife < pl.statLifeMax2) {
-                        Projectile.NewProjectile(pl.Center.X, pl.Center.Y, 0f, 0f, 298, 0, 0f, Main.myPlayer, (float)ModHelper.getPlayerIndex(pl), damage);
-                        Projectile.NewProjectile(pl.Center, new Vector2(0,0), mod.ProjectileType("LifebinderProj"), 0, 0, Main.myPlayer);
-/*                        pl.statLife += damage;
-                        pl.HealEffect(damage, true);
-                        if (pl.statLife > pl.statLifeMax2) {
-                            pl.statLife = pl.statLifeMax2;
-                        }*/
+                        Projectile.NewProjectile(pl.Center, new Vector2(0,0), 298, 0, 0f, Main.myPlayer, (float)ModHelper.getPlayerIndex(pl), damage);
+                        Projectile.NewProjectile(mouse, new Vector2(0,0), mod.ProjectileType("LifebinderProj"), 0, 0, Main.myPlayer, 0f, 0f);
+                        healed = true;
                         break;
                     }
                 }
             }
+        }
+        if(!healed){
+            Projectile.NewProjectile(mouse, new Vector2(0,0), mod.ProjectileType("LifebinderProj"), 0, 0, Main.myPlayer, 0f, 1f);
         }
         return false;
     }

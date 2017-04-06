@@ -20,7 +20,16 @@ namespace NinMod.Projectiles {
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor) {
-            ModHelper.createParticleCircle(projectile.position, 100, 50, ModLoader.GetMod("NinMod").GetDust("HealDust").Type);
+            switch (projectile.ai[1]) {
+                case 0f:
+                    ModHelper.createParticleCircle(projectile.position, 100, 50, ModLoader.GetMod("NinMod").GetDust("HealDust").Type, 0.08f);
+                    break;
+                case 1f:
+                    ModHelper.createParticleCircleColored(projectile.position, 100, 50, ModLoader.GetMod("NinMod").GetDust("HealDust").Type, 0f, new Color(255, 255, 0));
+                    break;
+                default:
+                    break;
+            }
             projectile.active = false;
             return base.PreDraw(spriteBatch, lightColor);
         }
