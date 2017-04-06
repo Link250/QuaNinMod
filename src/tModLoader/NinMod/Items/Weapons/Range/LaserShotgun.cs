@@ -44,7 +44,7 @@ namespace NinMod.Items.Weapons.Range
 			item.useAmmo = AmmoID.Bullet;
 			item.UseSound = SoundID.Item12;
 			item.damage = 28;
-			item.shootSpeed = 8.65f;
+			item.shootSpeed = 1.65f;
 			item.noMelee = true;
 			item.value = Item.sellPrice(0, 2, 0, 0);
 			item.rare = 4;

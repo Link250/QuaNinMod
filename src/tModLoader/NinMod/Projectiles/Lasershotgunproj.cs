@@ -13,7 +13,8 @@ namespace NinMod.Projectiles
             projectile.name = "lasy";
             projectile.width = 32;
             projectile.height = 32;
-//            projectile.aiStyle = 1;
+            //            projectile.aiStyle = 1;
+            projectile.ranged = true;
             projectile.friendly = true;
             projectile.alpha = 100;
             projectile.extraUpdates = 2;
