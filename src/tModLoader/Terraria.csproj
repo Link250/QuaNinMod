@@ -1542,6 +1542,7 @@
     <Compile Include="NinMod\Buffs\CrimBuff.cs" />
     <Compile Include="NinMod\Buffs\FishmasteryBuff.cs" />
     <Compile Include="NinMod\Buffs\ThrowingBuff.cs" />
+    <Compile Include="NinMod\Dusts\HealDust.cs" />
     <Compile Include="NinMod\Globals\CustomPlayer.cs" />
     <Compile Include="NinMod\Globals\GlobalItem.cs" />
     <Compile Include="NinMod\Items\Accessories\HealStuff\HolyEmblem.cs" />
@@ -1639,6 +1640,7 @@
     <Compile Include="NinMod\Projectiles\goldspearproj.cs" />
     <Compile Include="NinMod\Projectiles\ironspearproj.cs" />
     <Compile Include="NinMod\Projectiles\leadspearproj.cs" />
+    <Compile Include="NinMod\Projectiles\LifebinderProj.cs" />
     <Compile Include="NinMod\Projectiles\Magmapeakproj.cs" />
     <Compile Include="NinMod\Projectiles\platinumspearproj.cs" />
     <Compile Include="NinMod\Projectiles\Projectile_test1.cs" />
@@ -3718,6 +3720,7 @@
     <Content Include="NinMod\Data\IconPlatinCrescentSpear.png" />
     <Content Include="NinMod\Data\M4a1guardian.png" />
     <Content Include="NinMod\Data\StarAssaultRifle.png" />
+    <Content Include="NinMod\Dusts\HealDust.png" />
     <Content Include="NinMod\ignore.txt" />
     <Content Include="NinMod\Items\Accessories\HealStuff\HolyEmblem.png" />
     <Content Include="NinMod\Items\Accessories\ReinhardtboosterWings.png" />
@@ -3825,6 +3828,7 @@
     <Content Include="NinMod\Projectiles\cuatro.png" />
     <Content Include="NinMod\Projectiles\CustomSentryProj.png" />
     <Content Include="NinMod\Projectiles\dos.png" />
+    <Content Include="NinMod\Projectiles\LifebinderProj.png" />
     <Content Include="NinMod\Projectiles\Fiercebeam.png" />
     <Content Include="NinMod\Projectiles\goldspearproj.png" />
     <Content Include="NinMod\Projectiles\ironspearproj.png" />

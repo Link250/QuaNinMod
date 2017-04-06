@@ -42,11 +42,13 @@ namespace NinMod.Items.Weapons.Holy {
             if(possibleTargets.Count > 0) {
                 foreach (Player pl in possibleTargets) {
                     if(pl.statLife < pl.statLifeMax2) {
-                        pl.statLife += damage;
+                        Projectile.NewProjectile(pl.Center.X, pl.Center.Y, 0f, 0f, 298, 0, 0f, Main.myPlayer, (float)ModHelper.getPlayerIndex(pl), damage);
+                        Projectile.NewProjectile(pl.Center, new Vector2(0,0), mod.ProjectileType("LifebinderProj"), 0, 0, Main.myPlayer);
+/*                        pl.statLife += damage;
                         pl.HealEffect(damage, true);
                         if (pl.statLife > pl.statLifeMax2) {
                             pl.statLife = pl.statLifeMax2;
-                        }
+                        }*/
                         break;
                     }
                 }

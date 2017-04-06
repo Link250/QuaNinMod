@@ -115,12 +115,20 @@ namespace NinMod
             return playersFound;
         }
 
-        public static void createParticleCircle(Vector2 position, float radius, int density) {
+        public static void createParticleCircle(Vector2 position, float radius, int density, int dustID) {
             Vector2 offset = new Vector2(radius, 0);
             for(int i = 0; i < density; i++) {
                 offset = offset.RotatedBy(Math.PI * 2 / density);
-                Dust.NewDust(position + offset, 10, 10, DustID.Grass, -offset.X/30, -offset.Y/30);
+                //                Dust.NewDustDirect(position + offset, 10, 10, dustID, -offset.X/60, -offset.Y/60);
+                Dust.NewDustPerfect(position + offset, dustID, -offset/60);
             }
+        }
+
+        public static int getPlayerIndex(Player player) {
+            for(int i = 0; i < Main.player.Length; i++) {
+                if (Main.player[i].Equals(player)) return i;
+            }
+            return -1;
         }
 	}
 }
