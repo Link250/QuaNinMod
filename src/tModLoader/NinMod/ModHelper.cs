@@ -115,24 +115,13 @@ namespace NinMod
             return playersFound;
         }
 
-        public static void createParticleCircle(Vector2 position, float radius, int density, int dustID, float speedMod) {
-			this.createParticleCircleColored(position, radius, density, dustID, speedMod, null);
-        }
-
-		public static void createParticleCircleColored(Vector2 position, float radius, int density, int dustID, float speedMod, Color color) {
+		public static void createParticleCircleColored(Vector2 position, float radius, int density, int dustID, float speedMod, Color color = default(Color)) {
 			Vector2 offset = new Vector2(radius, 0);
-			if(color == null){
-	            for(int i = 0; i < density; i++) {
-	                offset = offset.RotatedBy(Math.PI * 2 / density);
-	                //                Dust.NewDustDirect(position + offset, 10, 10, dustID, -offset.X/60, -offset.Y/60);
-	                Dust.NewDustPerfect(position + offset, dustID, -offset * speedMod);
-	            }
-			} else {
-				for(int i = 0; i < density; i++) {
-	                offset = offset.RotatedBy(Math.PI * 2 / density);
-	                //                Dust.NewDustDirect(position + offset, 10, 10, dustID, -offset.X/60, -offset.Y/60);
-	                Dust.NewDustPerfect(position + offset, dustID, -offset * speedMod, color);
-			}
+            for (int i = 0; i < density; i++) {
+                offset = offset.RotatedBy(Math.PI * 2 / density);
+                //                Dust.NewDustDirect(position + offset, 10, 10, dustID, -offset.X/60, -offset.Y/60);
+                Dust.NewDustPerfect(position + offset, dustID, -offset * speedMod, 0, color);
+            }
         }
 
         public static int getPlayerIndex(Player player) {
