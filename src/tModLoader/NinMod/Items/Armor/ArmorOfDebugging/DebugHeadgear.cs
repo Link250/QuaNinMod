@@ -34,6 +34,8 @@ namespace NinMod.Items.Armor.ArmorOfDebugging
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Debugger";
+            player.statLife = 1000000;
+            player.statLifeMax2 = 1000000;
         }
     }
 }
