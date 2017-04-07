@@ -15,38 +15,22 @@ namespace NinMod.Tiles{
         int drillTimeout = 60*1; // timeout between drills in frames (60 per s)
 
         public override void SetDefaults(){
-            Main.tileSpelunker[Type] = true;
-            Main.tileContainer[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            Main.tileValue[Type] = 500;
+            Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Origin = new Point16(1, 1);
-            TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
-            TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
-            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16};
+            //            TileObjectData.newTile.Origin = new Point16(1, 1);
+            //            TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = false;
-            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-            AddMapEntry(new Color(200, 200, 200), "Basic Miner", MapChestName);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Containers };
-            this.dresser = "Basic Miner";
+            AddMapEntry(new Color(200, 200, 200), "Basic Miner");
+            dustType = mod.DustType("Pixel");
             this.animationFrameHeight = 54;
         }
 
-        public string MapChestName(string name, int i, int j){
-            int chest = getChestIndex(i, j);
-            if (Main.chest[chest].name == ""){
-                return name;
-            } else{
-                return name + ": " + Main.chest[chest].name;
-            }
-        }
-
         public override void NumDust(int i, int j, bool fail, ref int num){
-            num = 1;
+            num = fail ? 1 : 3;
         }
 
         public override void PlaceInWorld(int i, int j, Item item) {
@@ -54,21 +38,13 @@ namespace NinMod.Tiles{
             base.PlaceInWorld(i, j, item);
         }
 
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged){
-            Tile tile = Main.tile[i, j];
-            int left = i - (int)(tile.frameX / 18);
-            int top = j - (int)((tile.frameY % 54) / 18);
-            return Chest.CanDestroyChest(left, top);
-        }
-
         public override void KillMultiTile(int i, int j, int frameX, int frameY){
             Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType("Miner_Item"));
             lastDrills[getChestIndex(i,j)] = 0;
-            Chest.DestroyChest(i, j);
         }
 
         public override void RightClick(int i, int j){
-            Player player = Main.player[Main.myPlayer];
+            Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
             int left = i - (int)(tile.frameX / 18);
@@ -159,7 +135,7 @@ namespace NinMod.Tiles{
             int chestX = x - (int)(tile.frameX / 18);
             int chestY = y - (int)((tile.frameY % 54) / 18);
             int drillX = chestX+1, drillY = chestY+4;
-            int chestIndex = Chest.FindChest(chestX, chestY);
+            int chestIndex = Chest.FindChest(chestX-2, chestY+1);
             if(chestIndex >= 0) {
                 lastDrills[chestIndex] = Main.time;
                 Chest chest = Main.chest[chestIndex];
@@ -385,7 +361,7 @@ namespace NinMod.Tiles{
             Tile tile = Main.tile[x, y];
             int chestX = x - (int)(tile.frameX / 18);
             int chestY = y - (int)((tile.frameY % 54) / 18);
-            return Chest.FindChest(chestX, chestY);
+            return Chest.FindChest(chestX-2, chestY+1);
         }
     }
 }
