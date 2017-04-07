@@ -8,16 +8,16 @@ using Terraria.ModLoader;
 namespace NinMod.Projectiles  
  
 {
-    public class Grinderproj : ModProjectile
+    public class MagicSigil : ModProjectile
     {
  
         public override void SetDefaults()
         {
  
-            projectile.name = "Gaygrinder"; 
-            projectile.width = 76;
-            projectile.damage = 56;
-            projectile.height = 76; 
+            projectile.name = "sigil"; 
+            projectile.width = 100;
+            projectile.damage = 36;
+            projectile.height = 100; 
             projectile.hostile = false;   
             projectile.friendly = true;   
             projectile.ignoreWater = true;  
@@ -25,16 +25,23 @@ namespace NinMod.Projectiles
             projectile.timeLeft = 3000;  
             projectile.penetrate = -1; 
             projectile.tileCollide = false; 
-            projectile.sentry = true; 
+            projectile.sentry = true;
+            projectile.light = 0.6f;
+            
         }
  
         public override void Kill(int timeLeft)
         {
             Main.PlaySound(28, projectile.Center, 62);  
         }
- 
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            Main.player[(int)projectile.ai[0]].statMana +=3;
+            
+        }
         public override void AI()
         {
+
             projectile.rotation += 0.1f;
 
            /* if(projectile.ai[0] > 5f) {

@@ -6,33 +6,35 @@ using Terraria.ModLoader;
  
 namespace NinMod.Items.Weapons.Summon 
 {
-    public class Grinder : ModItem
+    public class MagicSigilItem : ModItem
     {
  
         public override void SetDefaults()
         {
-            item.name = "Grinder Staff"; 
+            item.name = "Sigil staff"; 
             item.damage = 56; 
             item.mana = 12;  
-            item.width = 56; 
+            item.width = 36; 
             item.height = 56;   
             item.useTime = 55;  
             item.useAnimation = 55; 
             item.useStyle = 1;  
-            AddTooltip("Summons a Grinder that grinds enemies, and also Items.");  
+            AddTooltip("Summons a Magic sigil that will hurt enemies on touch");
+            AddTooltip2("Restores a little bit of mana when attacking");
             item.noMelee = true; 
             item.knockBack = 2.5f;  
             item.value = Item.buyPrice(0, 10, 0, 0); 
             item.rare = 4;  
             item.UseSound = SoundID.Item44; 
             item.autoReuse = true;
-            item.shoot = mod.ProjectileType("Grinderproj");   
+            item.shoot = mod.ProjectileType("MagicSigil");   
             item.summon = true;  
             item.sentry = true; 
         }
  
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
+            
             Vector2 SPos = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY);  
             position = SPos;
             for (int l = 0; l < Main.projectile.Length; l++)
@@ -42,8 +44,11 @@ namespace NinMod.Items.Weapons.Summon
                 {
                     proj.active = false;
                 }
+
+
             }
-            return true;
+            Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("MagicSigil"), damage, 1f, Main.myPlayer, Main.myPlayer);
+            return false;
 			
         }
 		public override void AddRecipes()

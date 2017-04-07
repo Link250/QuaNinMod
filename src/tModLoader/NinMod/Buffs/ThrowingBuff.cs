@@ -19,7 +19,7 @@ namespace NinMod.Buffs
             player.thrownCrit += 5;
             player.thrownDamage += 5;
             player.thrownVelocity += 3;
-
+            
         }
 		
     }

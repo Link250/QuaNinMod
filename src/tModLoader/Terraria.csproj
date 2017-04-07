@@ -1832,7 +1832,7 @@
     <Compile Include="NinMod\Items\Weapons\Range\slimegun.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\Sweeper.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\TrenchGun.cs" />
-    <Compile Include="NinMod\Items\Weapons\Summon\Grinder.cs" />
+    <Compile Include="NinMod\Items\Weapons\Summon\MagicSigilItem.cs" />
     <Compile Include="NinMod\Items\Weapons\Summon\CustomSentryItem.cs" />
     <Compile Include="NinMod\ModHelper.cs" />
     <Compile Include="NinMod\NinMod.cs" />
@@ -1841,7 +1841,7 @@
     <Compile Include="NinMod\NPCs\Monster\Metroid.cs" />
     <Compile Include="NinMod\Projectiles\copperspearproj.cs" />
     <Compile Include="NinMod\Projectiles\cuatro.cs" />
-    <Compile Include="NinMod\Projectiles\Grinderproj.cs" />
+    <Compile Include="NinMod\Projectiles\MagicSigil.cs" />
     <Compile Include="NinMod\Projectiles\CustomSentryProj.cs" />
     <Compile Include="NinMod\Projectiles\dos.cs" />
     <Compile Include="NinMod\Projectiles\Fiercebeam.cs" />
@@ -4277,14 +4277,14 @@
     <Content Include="NinMod\Items\Weapons\Range\Slimegun.png" />
     <Content Include="NinMod\Items\Weapons\Range\Sweeper.png" />
     <Content Include="NinMod\Items\Weapons\Range\TrenchGun.png" />
-    <Content Include="NinMod\Items\Weapons\Summon\Grinder.png" />
+    <Content Include="NinMod\Items\Weapons\Summon\MagicSigilItem.png" />
     <Content Include="NinMod\Items\Weapons\Summon\CustomSentryItem.png" />
     <Content Include="NinMod\NinMod.csproj" />
     <Content Include="NinMod\NPCs\Monster\BabyMetroid.png" />
     <Content Include="NinMod\NPCs\Monster\Metroid.png" />
     <Content Include="NinMod\Projectiles\copperspearproj.png" />
     <Content Include="NinMod\Projectiles\cuatro.png" />
-    <Content Include="NinMod\Projectiles\Grinderproj.png" />
+    <Content Include="NinMod\Projectiles\MagicSigil.png" />
     <Content Include="NinMod\Projectiles\CustomSentryProj.png" />
     <Content Include="NinMod\Projectiles\dos.png" />
     <Content Include="NinMod\Projectiles\LifebinderProj.png" />
