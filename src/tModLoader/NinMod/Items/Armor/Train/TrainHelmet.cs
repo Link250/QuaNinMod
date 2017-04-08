@@ -18,7 +18,7 @@ namespace NinMod.Items.Armor.Train {
         {
             item.name = "Locomotive Cab";
             item.maxStack = 1;
-            item.defense = 12;
+            item.defense = 14;
             item.toolTip = "Tchoo Tchoo!";
             item.width = 18;
             item.height = 18;

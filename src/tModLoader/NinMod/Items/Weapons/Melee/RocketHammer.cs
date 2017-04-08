@@ -20,14 +20,14 @@ namespace NinMod.Items.Weapons.Melee
             item.width = 40;
             item.height = 40;
             item.toolTip = "Hammer... DOWN!!";
-            item.useTime = 40;
+            item.useTime = 20;
             item.useAnimation = 40;
             item.useStyle = 1;
             item.knockBack = 28;
             item.value = 00200000;
             item.rare = 7;
             item.crit = 10;
-            item.shoot = mod.ProjectileType("Testiproji");
+           // item.shoot = mod.ProjectileType("Testiproji");
             item.shootSpeed = 18f;
             item.UseSound = SoundID.Item1;
             item.autoReuse = true;
@@ -36,12 +36,13 @@ namespace NinMod.Items.Weapons.Melee
 
         public override bool AltFunctionUse(Player player)
         {
-            if (item.useTime == 40)
+            if (item.useTime == 20)
             {
-                item.useTime = 160;
-                item.useAnimation = 160;
+                item.useTime = 200;
+                item.useAnimation = 200;
                 item.shoot = mod.ProjectileType("Testiproji");
                 item.shootSpeed = 18f;
+                item.damage = 464;
             }
             else
             {
@@ -49,6 +50,7 @@ namespace NinMod.Items.Weapons.Melee
                 item.useAnimation = 20;
                 item.shoot = 0;
                 item.shootSpeed = 0;
+                item.damage = 290;
             }
 
             return true;

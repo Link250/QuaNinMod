@@ -18,7 +18,7 @@ namespace NinMod.Items.Armor.Train {
         {
             item.name = "Locomotive Driving Wheels";
             item.maxStack = 1;
-            item.defense = 10;
+            item.defense = 12;
             item.toolTip = "Clonk...Clonk..Clonk.ClonkClonk";
             item.width = 18;
             item.height = 18;
@@ -29,7 +29,7 @@ namespace NinMod.Items.Armor.Train {
         public override void UpdateEquip(Player player)
         {
             player.setBonus = "WROOOOOOOOOOOOOOOOM";
-            player.thorns = player.velocity.Length() / 5;
+            player.thorns = player.velocity.Length() / 4;
  
         }
 

@@ -13,9 +13,9 @@ namespace NinMod.NPCs.Monster
         {
             npc.displayName = "Nyan Cat";
             npc.name = "Nyan Cat";
-            npc.width = 48;               //this is where you put the npc sprite width.     important
-            npc.height = 50;              //this is where you put the npc sprite height.   important
-            npc.damage = 130;
+            npc.width = 46;               //this is where you put the npc sprite width.     important
+            npc.height = 90;              //this is where you put the npc sprite height.   important
+            npc.damage = 137;
             npc.defense = 5;
             npc.lifeMax = 1;
             npc.knockBackResist = 0.0f;

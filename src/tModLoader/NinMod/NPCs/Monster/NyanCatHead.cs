@@ -21,8 +21,8 @@ namespace NinMod.NPCs.Monster
             npc.damage = 180;    //this is the npc damage
             npc.defense = 40;         //this is the npc defense
             npc.knockBackResist = 0f;
-            npc.width = 40; //this is where you put the npc sprite width.     important
-            npc.height = 100; //this is where you put the npc sprite height.   important
+            npc.width = 46; //this is where you put the npc sprite width.     important
+            npc.height = 90; //this is where you put the npc sprite height.   important
             npc.lavaImmune = true;       //this make the npc immune to lava
             npc.noGravity = true;           //this make the npc float
             npc.noTileCollide = true;        //this make the npc go thru walls

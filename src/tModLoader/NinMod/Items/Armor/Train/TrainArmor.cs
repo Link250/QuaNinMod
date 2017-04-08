@@ -19,7 +19,7 @@ namespace NinMod.Items.Armor.Train
         {
             item.name = "Locomotive Burning Box";
             item.maxStack = 1;
-            item.defense = 16;
+            item.defense = 18;
             item.toolTip = "Chacka Chacka Chacka Chacka";
             item.width = 18;
             item.height = 18;
@@ -31,25 +31,12 @@ namespace NinMod.Items.Armor.Train
         {
             player.setBonus = "WROOOOOOOOOOOOOOOOM";
             player.meleeDamage *= player.velocity.Length() / 10;
-            player.meleeCrit = 10;
+            player.meleeCrit += 10;
   
            
         }
 
-        /*  public override bool IsArmorSet(Item head, Item body, Item legs)
-          {
-              return body.type == mod.ItemType("ExampleBreastplate") && legs.type == mod.ItemType("ExampleLeggings");
-          }*/
-
-        /*    public override void UpdateArmorSet(Player player)
-            {
-                player.setBonus = "trollface.jpg";
-                player.meleeDamage *= 0.8f;
-                player.thrownDamage *= 0.8f;
-                player.rangedDamage *= 0.8f;
-                player.magicDamage *= 0.8f;
-                player.minionDamage *= 0.8f;
-            }*/
+       
 
         public override void AddRecipes()
         {

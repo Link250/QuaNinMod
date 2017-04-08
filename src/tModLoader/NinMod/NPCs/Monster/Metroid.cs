@@ -14,7 +14,7 @@ namespace NinMod.NPCs.Monster
 			npc.width = 88;
 			npc.height = 88;
 			npc.damage = 170;
-			npc.defense = 98;
+			npc.defense = 120;
 			npc.lifeMax = 13200;
 			/*npc.soundHit = 8;
 			npc.soundKilled = 5;*/
@@ -28,11 +28,11 @@ namespace NinMod.NPCs.Monster
 			Main.npcFrameCount[npc.type] = Main.npcFrameCount[421];
 			aiType = 421;
 			animationType = 421;
-            
+        
         }
+        
 
-		
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+        public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
 			return Main.rand.Next(8)==0 && spawnInfo.player.ZoneTowerSolar? 0.7f : 0f;
         }

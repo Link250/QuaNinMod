@@ -16,7 +16,7 @@ namespace NinMod.Items.Weapons.Melee
         {
 
             item.name = "Dragonblade";
-            item.damage = 160;
+            item.damage = 190;
             item.melee = true;
             item.width = 40;
             item.height = 40;
