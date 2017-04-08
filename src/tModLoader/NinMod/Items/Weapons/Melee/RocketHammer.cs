@@ -59,7 +59,7 @@ namespace NinMod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddTile(18);
+            recipe.AddTile(412);
             recipe.SetResult(this);
             recipe.AddIngredient(3458, 18);
             recipe.AddRecipe();

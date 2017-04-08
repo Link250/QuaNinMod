@@ -15,9 +15,9 @@ namespace NinMod.Projectiles
         {
  
             projectile.name = "sigil"; 
-            projectile.width = 100;
-            projectile.damage = 36;
-            projectile.height = 100; 
+            projectile.width = 105;
+            projectile.damage = 46;
+            projectile.height = 105; 
             projectile.hostile = false;   
             projectile.friendly = true;   
             projectile.ignoreWater = true;  
@@ -27,6 +27,7 @@ namespace NinMod.Projectiles
             projectile.tileCollide = false; 
             projectile.sentry = true;
             projectile.light = 0.6f;
+            
             
         }
  

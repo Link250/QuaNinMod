@@ -1837,6 +1837,9 @@
     <Compile Include="NinMod\ModHelper.cs" />
     <Compile Include="NinMod\NinMod.cs" />
     <Compile Include="NinMod\NPCs\MobDrops.cs" />
+    <Compile Include="NinMod\NPCs\Monster\NyanCatHead.cs" />
+    <Compile Include="NinMod\NPCs\Monster\NyanCatBody.cs" />
+    <Compile Include="NinMod\NPCs\Monster\NyanCatTail.cs" />
     <Compile Include="NinMod\NPCs\Monster\BabyMetroid.cs" />
     <Compile Include="NinMod\NPCs\Monster\Metroid.cs" />
     <Compile Include="NinMod\Projectiles\copperspearproj.cs" />
@@ -4280,6 +4283,9 @@
     <Content Include="NinMod\Items\Weapons\Summon\MagicSigilItem.png" />
     <Content Include="NinMod\Items\Weapons\Summon\CustomSentryItem.png" />
     <Content Include="NinMod\NinMod.csproj" />
+    <Content Include="NinMod\NPCs\Monster\NyanCatHead.png" />
+    <Content Include="NinMod\NPCs\Monster\NyanCatBody.png" />
+    <Content Include="NinMod\NPCs\Monster\NyanCatTail.png" />
     <Content Include="NinMod\NPCs\Monster\BabyMetroid.png" />
     <Content Include="NinMod\NPCs\Monster\Metroid.png" />
     <Content Include="NinMod\Projectiles\copperspearproj.png" />

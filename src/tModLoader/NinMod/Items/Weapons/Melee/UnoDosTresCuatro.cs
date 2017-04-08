@@ -26,7 +26,7 @@ namespace NinMod.Items.Weapons.Melee
                 speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.8f + 0.9f));
                 speedY = baseSpeed * (float)Math.Cos(randomAngle) * ((Main.rand.NextFloat() * 0.8f) + 0.9f);
 
-                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("uno"), damage, 20f, Main.myPlayer);
+                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("uno"), damage, 7f, Main.myPlayer);
             }
             for (int i = 0; i < 1; ++i)
             {
@@ -34,7 +34,7 @@ namespace NinMod.Items.Weapons.Melee
                 speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.8f + 0.9f));
                 speedY = baseSpeed * (float)Math.Cos(randomAngle) * ((Main.rand.NextFloat() * 0.8f) + 0.9f);
 
-                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("dos"), damage, 20f, Main.myPlayer);
+                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("dos"), damage, 7f, Main.myPlayer);
             }
             for (int i = 0; i < 1; ++i)
             {
@@ -42,7 +42,7 @@ namespace NinMod.Items.Weapons.Melee
                 speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.8f + 0.9f));
                 speedY = baseSpeed * (float)Math.Cos(randomAngle) * ((Main.rand.NextFloat() * 0.8f) + 0.9f);
 
-                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("tres"), damage, 20f, Main.myPlayer);
+                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("tres"), damage, 7f, Main.myPlayer);
             }
             for (int i = 0; i < 1; ++i)
             {
@@ -50,7 +50,7 @@ namespace NinMod.Items.Weapons.Melee
                 speedX = baseSpeed * (float)Math.Sin(randomAngle) * ((Main.rand.NextFloat() * 0.8f + 0.9f));
                 speedY = baseSpeed * (float)Math.Cos(randomAngle) * ((Main.rand.NextFloat() * 0.8f) + 0.9f);
 
-                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("cuatro"), damage, 20f, Main.myPlayer);
+                Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("cuatro"), damage, 7f, Main.myPlayer);
             }
             return false;
         }
@@ -59,7 +59,7 @@ namespace NinMod.Items.Weapons.Melee
         public override void SetDefaults()
         {
             item.name = "Uno Dos Tres Cuatro";
-            item.damage = 96;
+            item.damage = 79;
             item.melee = true;
             item.width = 40;
             item.height = 40;

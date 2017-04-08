@@ -32,8 +32,8 @@ namespace NinMod.NPCs.Monster
 		
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.rand.Next(15)==0 && ModHelper.playerNearSolar(spawnInfo.player) ? 1f : 0f;
-		}
+			return Main.rand.Next(8)==0 && spawnInfo.player.ZoneTowerSolar? 0.5f : 0f;
+        }
 		
 		public override void HitEffect(int hitDirection, double damage)
 		{

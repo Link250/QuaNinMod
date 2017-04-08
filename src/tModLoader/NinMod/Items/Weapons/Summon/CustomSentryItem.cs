@@ -55,8 +55,10 @@ namespace NinMod.Items.Weapons.Summon
             recipe.AddIngredient(530, 20);
             recipe.AddIngredient(97, 100);
             recipe.SetResult(this);
-			recipe.AddTile(221);
-			recipe.AddRecipe();
+            recipe.AddTile(133);
+            recipe.AddTile(77);
+            recipe.AddTile(18);
+            recipe.AddRecipe();
 		}
     }
 }

@@ -15,8 +15,8 @@ namespace NinMod.Projectiles
         {
  
             projectile.name = "Gaylord"; 
-            projectile.width = 42; 
-            projectile.height = 42; 
+            projectile.width = 39; 
+            projectile.height = 39; 
             projectile.hostile = false;   
             projectile.friendly = false;   
             projectile.ignoreWater = true;  

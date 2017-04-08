@@ -12,7 +12,7 @@ namespace NinMod.Items.Weapons.Summon
         public override void SetDefaults()
         {
             item.name = "Sigil staff"; 
-            item.damage = 56; 
+            item.damage = 46; 
             item.mana = 12;  
             item.width = 36; 
             item.height = 56;   
@@ -54,14 +54,14 @@ namespace NinMod.Items.Weapons.Summon
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(98, 1);
-            recipe.AddIngredient(117, 12);
-            recipe.AddIngredient(3619, 1);
-            recipe.AddIngredient(530, 20);
-            recipe.AddIngredient(97, 100);
+            recipe.AddIngredient(548, 4);
+            recipe.AddIngredient(1225, 6);
+            recipe.AddIngredient(293, 1);
             recipe.SetResult(this);
-			recipe.AddTile(221);
-			recipe.AddRecipe();
+			recipe.AddTile(133);
+            recipe.AddTile(77);
+            recipe.AddTile(18);
+            recipe.AddRecipe();
 		}
     }
 }
