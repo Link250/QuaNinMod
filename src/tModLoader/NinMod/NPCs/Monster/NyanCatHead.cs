@@ -17,7 +17,7 @@ namespace NinMod.NPCs.Monster
         {
             npc.name = "Nyan Cat";        //this is the npc Name
             npc.displayName = "Nyan Cat";
-            npc.lifeMax = 26000;        //this is the npc health
+            npc.lifeMax = 34000;        //this is the npc health
             npc.damage = 180;    //this is the npc damage
             npc.defense = 40;         //this is the npc defense
             npc.knockBackResist = 0f;
@@ -36,7 +36,7 @@ namespace NinMod.NPCs.Monster
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.rand.Next(8) == 0 && spawnInfo.player.ZoneTowerNebula ? 0.8f : 0f;
+            return Main.rand.Next(8) == 0 && spawnInfo.player.ZoneTowerNebula ? 0.7f : 0f;
 
         }
         public override bool PreAI()
@@ -116,7 +116,7 @@ namespace NinMod.NPCs.Monster
             if (!collision)
             {
                 Rectangle rectangle1 = new Rectangle((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height);
-                int maxDistance = 2800;
+                int maxDistance = 7600;
                 bool playerCollision = true;
                 for (int index = 0; index < 255; ++index)
                 {
