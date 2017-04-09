@@ -22,8 +22,15 @@ namespace NinMod.Items.Weapons.Range
 				double randomAngle = baseAngle+(Main.rand.NextFloat()-0.5f)*0.33;
 				speedX = baseSpeed*(float)Math.Sin(randomAngle)* ((Main.rand.NextFloat()*0.5f+1.5f));
 				speedY = baseSpeed*(float)Math.Cos(randomAngle)* ((Main.rand.NextFloat() * 0.5f)+1.5f);
+				if (spamming)
+                {
+                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, /*616*/140, damage, 1f, Main.myPlayer);
+                }
+                else
+                {
+                    Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY,/*140*/616, damage, 7f, Main.myPlayer);
+                }
 				
-				Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, /*616*/140, damage, 10f, Main.myPlayer);
 				
             }
 			return false;
@@ -35,15 +42,15 @@ namespace NinMod.Items.Weapons.Range
 			item.crit = 0;
 			item.knockBack = 4.25f;
 			item.useStyle = 5;
-			item.useAnimation = 22;
-			item.useTime = 22;
+			item.useAnimation = 20;
+			item.useTime = 20;
 			item.name = "Phara's Rocket Launcher";
 			item.width = 50;
 			item.height = 14;
 			item.reuseDelay = 32;
 			item.useAmmo = AmmoID.Rocket;
 			item.UseSound = SoundID.Item36;
-			item.damage = 112;
+			item.damage = 233;
 			item.shootSpeed = 2.35f;
 			item.noMelee = true;
 			item.value = Item.sellPrice(0, 8, 0, 0);
@@ -51,14 +58,15 @@ namespace NinMod.Items.Weapons.Range
 			item.ranged = true;
 			item.shoot = ProjectileID.RocketIII;
 			item.toolTip = "Justice Rains From Above!";
-			item.autoReuse = true;
+            item.toolTip2 = "Right click for ULT!";
+            item.autoReuse = true;
 		}
         int timero = -1;
         bool spamming = false;
 
         public override bool CanUseItem(Player player) {
             if (spamming) {
-                if(timero == -1 || Math.Abs(Main.time - timero) >= 600) {
+                if(timero == -1 || Math.Abs(Main.time - timero) >= 1800) {
                     timero = (int)Main.time;
                     return true;
                 }return false;
@@ -71,13 +79,14 @@ namespace NinMod.Items.Weapons.Range
             if (spamming) {
                 item.useAnimation = 120;
                 item.useTime = 3;
-                item.damage = 112;
-                player.AddBuff(mod.BuffType("URTph"), 600, true);
+                item.damage = 162;
+                player.AddBuff(mod.BuffType("URTph"), 1800, true);
+
 
             } else {
-                item.useAnimation = 22;
-                item.useTime = 22;
-                item.damage = 112;
+                item.useAnimation = 20;
+                item.useTime = 20;
+                item.damage = 233;
             }
             return true;
         }
