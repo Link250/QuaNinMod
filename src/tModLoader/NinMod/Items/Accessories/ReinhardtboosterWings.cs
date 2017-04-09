@@ -34,6 +34,8 @@ namespace NinMod.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.wingTimeMax = 5;
+            
+            
         }
 
         public override void VerticalWingSpeeds(ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -44,6 +46,7 @@ namespace NinMod.Items.Accessories
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
+            
         }
 
         public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)

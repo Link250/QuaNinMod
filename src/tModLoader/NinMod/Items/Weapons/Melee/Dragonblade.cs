@@ -16,23 +16,25 @@ namespace NinMod.Items.Weapons.Melee
         {
 
             item.name = "Dragonblade";
-            item.damage = 190;
-            item.melee = true;
+            item.damage = 74;
+            item.melee = false;
+            item.ranged = true;
             item.width = 40;
             item.height = 40;
-            item.toolTip = "Ryujin no ken wo kurae!";
+            item.toolTip = "Melee Sword and ranged Shuriken";
+            item.toolTip2 = "Ryujin no ken wo kurae!";
             item.useTime = 12;
             item.useAnimation = 12;
             item.useStyle = 1;
-            item.knockBack = 28;
+            item.knockBack = 1;
             item.value = 00200000;
             item.rare = 7;
             item.crit = 25;
             item.UseSound = SoundID.Item1;
-            item.autoReuse = false;
-
-
-
+            item.autoReuse = true;
+            item.shoot = mod.ProjectileType("GenjiShuriken");
+            item.shootSpeed = 7f;
+            item.noUseGraphic = true;
 
         }
 
@@ -40,15 +42,25 @@ namespace NinMod.Items.Weapons.Melee
         {
             if (item.useTime == 12)
             {
-                item.useTime = 24;
-                item.useAnimation = 24;
-                item.damage = 300;
+                item.useTime = 20;
+                item.useAnimation = 20;
+                item.damage = 477;
+                item.noUseGraphic = false;
+                item.shoot = 0;
+                item.melee = true;
+                item.ranged = false;
+                item.knockBack = 23;
             }
             else
             {
                 item.useTime = 12;
                 item.useAnimation = 12;
-                item.damage = 160;
+                item.damage = 89;
+                item.noUseGraphic = true;
+                item.shoot = mod.ProjectileType("GenjiShuriken");
+                item.melee = false;
+                item.ranged = true;
+                item.knockBack = 1;
             }
 
             return true;
@@ -60,9 +72,10 @@ namespace NinMod.Items.Weapons.Melee
             recipe.AddTile(18);
             recipe.SetResult(this);
             recipe.AddIngredient(1346, 8);
-			recipe.AddIngredient(2862, 1);
+			recipe.AddIngredient(3456, 6);
 			recipe.AddIngredient(1006, 16);
 			recipe.AddIngredient(1508, 1);
+            recipe.AddIngredient(2880, 1); 
             recipe.AddRecipe();
         }
 
@@ -76,7 +89,5 @@ namespace NinMod.Items.Weapons.Melee
             target.AddBuff(39, 1200);
 
         }
-
-
     }
 }

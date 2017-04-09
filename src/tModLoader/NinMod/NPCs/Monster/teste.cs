@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+/*using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,8 +16,7 @@ namespace NinMod.NPCs.Monster
 			npc.damage = 60;
 			npc.defense = 10;
 			npc.lifeMax = 320;
-			/*npc.soundHit = 8;
-			npc.soundKilled = 5;*/
+			
 			npc.value = 750f;
 			npc.npcSlots = 1f;
 			npc.buffImmune[31] = true;
@@ -29,13 +28,14 @@ namespace NinMod.NPCs.Monster
 			aiType = 421;
 			animationType = 421;
 		}
-        public override void AI()
-        {
-            
-        }
-        public override float CanSpawn(NPCSpawnInfo spawnInfo)
-        {
-            return Main.rand.Next(8) == 0 && spawnInfo.player.ZoneTowerStardust? 0.9f : 0f;
+
+		 public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		 {
+            int x = spawnInfo.spawnTileX;
+            int y = spawnInfo.spawnTileY;
+            int tile = (int)Main.tile[x, y].type;
+            bool oUnderworld = (y >= (Main.maxTilesY * 0.8f));
+            return oUnderworld ? 0.02f : 0f;
         }
         public override void NPCLoot()
         {
@@ -50,3 +50,4 @@ namespace NinMod.NPCs.Monster
 		}
 	}
 }
+*/

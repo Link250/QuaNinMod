@@ -1745,6 +1745,7 @@
     <Compile Include="NATUPNPLib\IStaticPortMappingCollection.cs" Condition="$(DefineConstants.Contains('SERVER'))" />
     <Compile Include="NATUPNPLib\IUPnPNAT.cs" Condition="$(DefineConstants.Contains('SERVER'))" />
     <Compile Include="NATUPNPLib\UPnPNAT.cs" Condition="$(DefineConstants.Contains('SERVER'))" />
+    <Compile Include="NinMod\Buffs\URTph.cs" />
     <Compile Include="NinMod\Buffs\CrimBuff.cs" />
     <Compile Include="NinMod\Buffs\FishmasteryBuff.cs" />
     <Compile Include="NinMod\Buffs\ThrowingBuff.cs" />
@@ -1825,6 +1826,7 @@
     <Compile Include="NinMod\Items\Weapons\Range\Jewolver.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\LaserShotgun.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\M4a1.cs" />
+    <Compile Include="NinMod\Items\Weapons\Range\PhaRocket.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\Maelstrom.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\Ninvolver.cs" />
     <Compile Include="NinMod\Items\Weapons\Range\RainbowShotgun.cs" />
@@ -1837,6 +1839,7 @@
     <Compile Include="NinMod\ModHelper.cs" />
     <Compile Include="NinMod\NinMod.cs" />
     <Compile Include="NinMod\NPCs\MobDrops.cs" />
+    <Compile Include="NinMod\NPCs\Monster\teste.cs" />
     <Compile Include="NinMod\NPCs\Monster\NyanCatHead.cs" />
     <Compile Include="NinMod\NPCs\Monster\NyanCatBody.cs" />
     <Compile Include="NinMod\NPCs\Monster\NyanCatTail.cs" />
@@ -1844,6 +1847,7 @@
     <Compile Include="NinMod\NPCs\Monster\Metroid.cs" />
     <Compile Include="NinMod\Projectiles\copperspearproj.cs" />
     <Compile Include="NinMod\Projectiles\cuatro.cs" />
+    <Compile Include="NinMod\Projectiles\GenjiShuriken.cs" />
     <Compile Include="NinMod\Projectiles\MagicSigil.cs" />
     <Compile Include="NinMod\Projectiles\CustomSentryProj.cs" />
     <Compile Include="NinMod\Projectiles\dos.cs" />
@@ -4170,6 +4174,7 @@
     <Content Include="ExampleMod\Waters\ExampleWaterStyle.png" />
     <Content Include="ExampleMod\Waters\ExampleWaterStyle_Block.png" />
     <Content Include="Icon.ico" />
+    <Content Include="NinMod\Buffs\URTph.png" />
     <Content Include="NinMod\Buffs\CrimBuff.png" />
     <Content Include="NinMod\Buffs\FishmasteryBuff.png" />
     <Content Include="NinMod\Buffs\ThrowingBuff.png" />
@@ -4273,6 +4278,7 @@
     <Content Include="NinMod\Items\Weapons\Range\Jewolver.png" />
     <Content Include="NinMod\Items\Weapons\Range\LaserShotgun.png" />
     <Content Include="NinMod\Items\Weapons\Range\M4a1.png" />
+    <Content Include="NinMod\Items\Weapons\Range\PhaRocket.png" />
     <Content Include="NinMod\Items\Weapons\Range\Maelstrom.png" />
     <Content Include="NinMod\Items\Weapons\Range\Ninvolver.png" />
     <Content Include="NinMod\Items\Weapons\Range\RainbowShotgun.png" />
@@ -4283,6 +4289,7 @@
     <Content Include="NinMod\Items\Weapons\Summon\MagicSigilItem.png" />
     <Content Include="NinMod\Items\Weapons\Summon\CustomSentryItem.png" />
     <Content Include="NinMod\NinMod.csproj" />
+    <Content Include="NinMod\NPCs\Monster\teste.png" />
     <Content Include="NinMod\NPCs\Monster\NyanCatHead.png" />
     <Content Include="NinMod\NPCs\Monster\NyanCatBody.png" />
     <Content Include="NinMod\NPCs\Monster\NyanCatTail.png" />
@@ -4290,6 +4297,7 @@
     <Content Include="NinMod\NPCs\Monster\Metroid.png" />
     <Content Include="NinMod\Projectiles\copperspearproj.png" />
     <Content Include="NinMod\Projectiles\cuatro.png" />
+    <Content Include="NinMod\Projectiles\GenjiShuriken.png" />
     <Content Include="NinMod\Projectiles\MagicSigil.png" />
     <Content Include="NinMod\Projectiles\CustomSentryProj.png" />
     <Content Include="NinMod\Projectiles\dos.png" />
@@ -4308,6 +4316,7 @@
     <Content Include="NinMod\Projectiles\tres.png" />
     <Content Include="NinMod\Projectiles\tungstenspearproj.png" />
     <Content Include="NinMod\Projectiles\uno.png" />
+    <Content Include="NinMod\Sounds\Genji.wav" />
     <Content Include="NinMod\TestItems\d.png" />
     <Content Include="NinMod\TestItems\dd.png" />
     <Content Include="NinMod\TestItems\ddd.png" />
