@@ -11,11 +11,11 @@ namespace NinMod.Buffs
         {
             Main.buffNoTimeDisplay[Type] = false;
             Main.buffName[this.Type] = "Ult Recharge Time";
-            Main.buffTip[this.Type] = "";
+            Main.buffTip[this.Type] = "d";
         }
         public override void Update(Player player, ref int buffIndex)
         {
-           
+            player.statDefense += 55;
 			
         }
 		
