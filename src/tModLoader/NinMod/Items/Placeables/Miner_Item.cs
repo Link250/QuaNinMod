@@ -24,8 +24,11 @@ namespace NinMod.Items.Placeables {
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(1041, 93);
+            recipe.AddRecipeGroup("Wood", 30);
+            recipe.AddRecipeGroup("IronBar", 20);
+            recipe.AddIngredient(ItemID.Wire, 10);
             recipe.SetResult(this);
+            recipe.AddTile(18);
             recipe.AddRecipe();
         }
     }
