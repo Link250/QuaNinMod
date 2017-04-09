@@ -35,8 +35,8 @@ namespace NinMod.Items.Weapons.Range
 			item.crit = 0;
 			item.knockBack = 4.25f;
 			item.useStyle = 5;
-			item.useAnimation = 28;
-			item.useTime = 28;
+			item.useAnimation = 22;
+			item.useTime = 22;
 			item.name = "Phara's Rocket Launcher";
 			item.width = 50;
 			item.height = 14;
@@ -53,7 +53,17 @@ namespace NinMod.Items.Weapons.Range
 			item.toolTip = "Justice Rains From Above!";
 			item.autoReuse = true;
 		}
-        int timero; 
+        int timero;
+
+        public override bool UseItem(Player player)
+        {
+            item.useAnimation = 22;
+            item.useTime = 22;
+            item.damage = 112;
+
+            return true;
+        }
+
         public override bool AltFunctionUse(Player player)
         {
             item.useAnimation = 120;
