@@ -58,7 +58,7 @@ namespace NinMod.Items.Weapons.Range
 
         public override bool CanUseItem(Player player) {
             if (spamming) {
-                if(timero == -1 || Math.Abs(Main.time - timero) >= 300) {
+                if(timero == -1 || Math.Abs(Main.time - timero) >= 600) {
                     timero = (int)Main.time;
                     return true;
                 }return false;
@@ -72,6 +72,8 @@ namespace NinMod.Items.Weapons.Range
                 item.useAnimation = 120;
                 item.useTime = 3;
                 item.damage = 112;
+                player.AddBuff(mod.BuffType("URTph"), 600, true);
+
             } else {
                 item.useAnimation = 22;
                 item.useTime = 22;
