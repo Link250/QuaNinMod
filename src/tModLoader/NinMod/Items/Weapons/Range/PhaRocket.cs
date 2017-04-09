@@ -53,30 +53,35 @@ namespace NinMod.Items.Weapons.Range
 			item.toolTip = "Justice Rains From Above!";
 			item.autoReuse = true;
 		}
-        int timero;
+        int timero = -1;
+        bool spamming = false;
 
-        public override bool UseItem(Player player)
-        {
-            item.useAnimation = 22;
-            item.useTime = 22;
-            item.damage = 112;
-
-            return true;
+        public override bool CanUseItem(Player player) {
+            if (spamming) {
+                if(timero == -1 || Math.Abs(Main.time - timero) >= 300) {
+                    timero = (int)Main.time;
+                    return true;
+                }return false;
+            }return true;
         }
 
         public override bool AltFunctionUse(Player player)
         {
-            item.useAnimation = 120;
-            item.useTime = 3;
-            item.damage = 112;
-
-            timero = (int)Main.time;
+            spamming = !spamming;
+            if (spamming) {
+                item.useAnimation = 120;
+                item.useTime = 3;
+                item.damage = 112;
+            } else {
+                item.useAnimation = 22;
+                item.useTime = 22;
+                item.damage = 112;
+            }
             return true;
         }
 
-        public override bool CanRightClick()
-        {
-            return Math.Abs(Main.time - timero) >= 7200;
+        public override bool CanRightClick(){
+            return true;
         }
 
         public override void AddRecipes()
