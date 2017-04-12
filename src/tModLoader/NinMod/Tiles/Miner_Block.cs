@@ -79,9 +79,9 @@ namespace NinMod.Tiles{
                         bool foundOre = false;
                         int oreDir = 0;
                         for (int Xoffset = 1; Xoffset <= maxXoffset; Xoffset++) {
-                            if (Main.tileSpelunker[Main.tile[drillX - Xoffset,drillY].type]) {
+                            if (!WorldGen.TileEmpty(drillX - Xoffset, drillY) && Main.tileSpelunker[Main.tile[drillX - Xoffset,drillY].type]) {
                                 oreDir = -1;
-                            }else if (Main.tileSpelunker[Main.tile[drillX + Xoffset, drillY].type]) {
+                            }else if (!WorldGen.TileEmpty(drillX + Xoffset, drillY) && Main.tileSpelunker[Main.tile[drillX + Xoffset, drillY].type]) {
                                 oreDir = 1;
                             }
                             if (oreDir != 0) {
