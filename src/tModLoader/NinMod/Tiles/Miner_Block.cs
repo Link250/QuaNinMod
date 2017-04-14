@@ -94,6 +94,7 @@ namespace NinMod.Tiles{
                             if (!WorldGen.TileEmpty(drillX + oreDir*Xoffset, drillY)) {
                                 drillX += oreDir*Xoffset;
                                 foundTile = true;
+                                if (getChestIndex(drillX, drillY) >= 0) break;
                                 if (Main.tileSpelunker[Main.tile[drillX, drillY].type]) spelunkerLeft[chestIndex]--;
                                 break;
                             }

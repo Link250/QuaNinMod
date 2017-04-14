@@ -17,7 +17,7 @@ namespace NinMod.Items.Placeables {
             item.useTime = 10;
             item.useStyle = 1;
             item.consumable = true;
-            item.value = 50;
+            item.value = 5 * (1 * 100 * 100);
             item.createTile = mod.TileType("Miner_Block");
         }
 

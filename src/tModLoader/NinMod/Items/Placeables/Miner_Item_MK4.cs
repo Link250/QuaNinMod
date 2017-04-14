@@ -17,16 +17,16 @@ namespace NinMod.Items.Placeables {
             item.useTime = 10;
             item.useStyle = 1;
             item.consumable = true;
-            item.value = 50;
+            item.value = 5 * (50 * 100 * 100);
             item.createTile = mod.TileType("Miner_Block_MK4");
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddRecipeGroup("Wood", 30);
-            recipe.AddRecipeGroup("IronBar", 20);
-            recipe.AddIngredient(ItemID.Wire, 10);
+            recipe.AddIngredient(mod, "Miner_Item_MK3", 1);
+            recipe.AddIngredient(ItemID.LunarBar, 20);
+            recipe.AddIngredient(ItemID.LastPrism, 1);
             recipe.SetResult(this);
             recipe.AddTile(18);
             recipe.AddRecipe();
