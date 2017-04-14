@@ -26,14 +26,14 @@ namespace NinMod.Tiles{
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16};
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18};
             //            TileObjectData.newTile.Origin = new Point16(1, 1);
-            //            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(200, 200, 200), "Basic Miner");
             dustType = mod.DustType("Pixel");
-            this.animationFrameHeight = 54;
+            this.animationFrameHeight = 56;
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num){
@@ -65,7 +65,7 @@ namespace NinMod.Tiles{
         public void startDrill(int x, int y){
             Tile tile = Main.tile[x, y];
             int chestX = x - (int)(tile.frameX / 18);
-            int chestY = y - (int)((tile.frameY % 54) / 18);
+            int chestY = y - (int)((tile.frameY % this.animationFrameHeight) / 18);
             int drillX = chestX+1, drillY = chestY+4;
             int chestIndex = Chest.FindChest(chestX-2, chestY+1);
             if(chestIndex >= 0) {
@@ -340,10 +340,19 @@ namespace NinMod.Tiles{
             }
         }
 
+        public override void AnimateTile(ref int frame, ref int frameCounter) {
+            if (++frameCounter >= 4) {
+                frameCounter = 0;
+                if (++frame >= 4) {
+                    frame = 0;
+                }
+            }
+        }
+
         public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor, ref int nextSpecialDrawIndex) {
-        Tile tile = Main.tile[i, j];
-            tile.frameY = (short)(tile.frameY % 54 + 54 * (Main.time % 4));
-            if (tile.frameX == 0 && (tile.frameY % 54) == 0) {
+            Tile tile = Main.tile[i, j];
+            //create dust particles, but only once (for the first upper left tile)
+            if (tile.frameX == 0 && (tile.frameY % this.animationFrameHeight) == 0) {
                 Dust.NewDust(new Vector2(i * 16 + 23, j * 16 + 50), 1, 1, 0);
             }
         }
@@ -351,7 +360,7 @@ namespace NinMod.Tiles{
         public int getChestIndex(int x, int y) {
             Tile tile = Main.tile[x, y];
             int chestX = x - (int)(tile.frameX / 18);
-            int chestY = y - (int)((tile.frameY % 54) / 18);
+            int chestY = y - (int)((tile.frameY % this.animationFrameHeight) / 18);
             return Chest.FindChest(chestX-2, chestY+1);
         }
     }
