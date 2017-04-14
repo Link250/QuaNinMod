@@ -1791,6 +1791,9 @@
     <Compile Include="NinMod\Items\Materials\TungstensteeI.cs" />
     <Compile Include="NinMod\Items\Placeables\AlloySmelter.cs" />
     <Compile Include="NinMod\Items\Placeables\ChestTestItem.cs" />
+    <Compile Include="NinMod\Items\Placeables\Miner_Item_MK4.cs" />
+    <Compile Include="NinMod\Items\Placeables\Miner_Item_MK3.cs" />
+    <Compile Include="NinMod\Items\Placeables\Miner_Item_MK2.cs" />
     <Compile Include="NinMod\Items\Placeables\Miner_Item.cs" />
     <Compile Include="NinMod\Items\Placeables\TestBlock.cs" />
     <Compile Include="NinMod\Items\Weapons\Holy\Bandage.cs" />
@@ -1880,6 +1883,9 @@
     <Compile Include="NinMod\TestItems\TestYoyo.cs" />
     <Compile Include="NinMod\Tiles\AlloySmelter.cs" />
     <Compile Include="NinMod\Tiles\ChestTestTile.cs" />
+    <Compile Include="NinMod\Tiles\Miner_Block_MK4.cs" />
+    <Compile Include="NinMod\Tiles\Miner_Block_MK3.cs" />
+    <Compile Include="NinMod\Tiles\Miner_Block_MK2.cs" />
     <Compile Include="NinMod\Tiles\Miner_Block.cs" />
     <Compile Include="NinMod\Tiles\TestBlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4243,6 +4249,9 @@
     <Content Include="NinMod\Items\Materials\Tungstensteel.png" />
     <Content Include="NinMod\Items\Placeables\AlloySmelter.png" />
     <Content Include="NinMod\Items\Placeables\ChestTestItem.png" />
+    <Content Include="NinMod\Items\Placeables\Miner_Item_MK4.png" />
+    <Content Include="NinMod\Items\Placeables\Miner_Item_MK3.png" />
+    <Content Include="NinMod\Items\Placeables\Miner_Item_MK2.png" />
     <Content Include="NinMod\Items\Placeables\Miner_Item.png" />
     <Content Include="NinMod\Items\Placeables\TestBlock.png" />
     <Content Include="NinMod\Items\Weapons\Holy\Bandage.png" />
@@ -4334,6 +4343,12 @@
     <Content Include="NinMod\Tiles\AlloySmelter.png" />
     <Content Include="NinMod\Tiles\ChestTestTile.png" />
     <Content Include="NinMod\Tiles\Miner_Block.png" />
+    <Content Include="NinMod\Tiles\Miner_Block_MK2.png" />
+    <Content Include="NinMod\Tiles\Miner_Block_MK2_.png" />
+    <Content Include="NinMod\Tiles\Miner_Block_MK3.png" />
+    <Content Include="NinMod\Tiles\Miner_Block_MK3_.png" />
+    <Content Include="NinMod\Tiles\Miner_Block_MK4.png" />
+    <Content Include="NinMod\Tiles\Miner_Block_MK4_.png" />
     <Content Include="NinMod\Tiles\TestBlock.png" />
     <Content Include="NinMod\TODO.txt" />
     <EmbeddedResource Include="Terraria.ModLoader.UI\LoaderBG.png" />

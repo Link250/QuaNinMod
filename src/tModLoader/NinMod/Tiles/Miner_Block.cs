@@ -10,16 +10,19 @@ using Terraria.ObjectData;
 
 namespace NinMod.Tiles{
     public class Miner_Block : ModTile{
-        double[] lastDrills = new double[1000]; // used for drill timeouts
-        int[] spelunkerLeft = new int[1000]; // used for drill timeouts
+        protected double[] lastDrills = new double[1000]; // used for drill timeouts
+        protected int[] spelunkerLeft = new int[1000]; // used for drill timeouts
 
-        int drillTimeout = 60*1; // timeout between drills in frames (60 per s)
-        int width = 1; //width of the drill area (has to be uneven)
-        int spelunkerWidth = 5; //width of the drill area while using a spelunker potion (has to be uneven)
+        protected int drillTimeout = 60 * 5; // timeout between drills in frames (60 per s)
+        protected int width = 1; //width of the drill area (has to be uneven)
+        protected int spelunkerWidth = 5; //width of the drill area while using a spelunker potion (has to be uneven)
 
-        float spelunkerEfficiency = 1;
-        int potionStrength = 100;
-        int stickStrength = 20;
+        protected float spelunkerEfficiency = 1;
+        protected int potionStrength = 100;
+        protected int stickStrength = 20;
+
+        protected Point chestOffset = new Point(-2,1);
+        protected Point drillOffset = new Point(1,4);
 
         public override void SetDefaults(){
             Main.tileFrameImportant[Type] = true;
@@ -63,11 +66,9 @@ namespace NinMod.Tiles{
         }
 
         public void startDrill(int x, int y){
-            Tile tile = Main.tile[x, y];
-            int chestX = x - (int)(tile.frameX / 18);
-            int chestY = y - (int)((tile.frameY % this.animationFrameHeight) / 18);
-            int drillX = chestX+1, drillY = chestY+4;
-            int chestIndex = Chest.FindChest(chestX-2, chestY+1);
+            Point drillPos = getDrillPosition(x, y);
+            int drillX = drillPos.X, drillY = drillPos.Y;
+            int chestIndex = getChestIndex(x, y);
             if(chestIndex >= 0) {
                 lastDrills[chestIndex] = Main.time;
                 Chest chest = Main.chest[chestIndex];
@@ -341,7 +342,7 @@ namespace NinMod.Tiles{
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter) {
-            if (++frameCounter >= 4) {
+            if (++frameCounter >= 6) {
                 frameCounter = 0;
                 if (++frame >= 4) {
                     frame = 0;
@@ -361,7 +362,14 @@ namespace NinMod.Tiles{
             Tile tile = Main.tile[x, y];
             int chestX = x - (int)(tile.frameX / 18);
             int chestY = y - (int)((tile.frameY % this.animationFrameHeight) / 18);
-            return Chest.FindChest(chestX-2, chestY+1);
+            return Chest.FindChest(chestX+chestOffset.X, chestY+chestOffset.Y);
+        }
+
+        public Point getDrillPosition(int x, int y) {
+            Tile tile = Main.tile[x, y];
+            int drillX = x - (int)(tile.frameX / 18);
+            int drillY = y - (int)((tile.frameY % this.animationFrameHeight) / 18);
+            return new Point(drillX + drillOffset.X, drillY + drillOffset.Y);
         }
     }
 }
