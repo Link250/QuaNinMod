@@ -44,14 +44,5 @@ namespace NinMod.TestItems
 			speedY = baseSpeed*(float)Math.Cos(randomAngle);
 			return true;
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddTile(18);
-			recipe.SetResult(this);
-			recipe.AddIngredient(1041, 93);
-			recipe.AddRecipe();
-		}
 	}
 }

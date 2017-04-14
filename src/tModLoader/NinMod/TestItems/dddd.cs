@@ -66,14 +66,5 @@ namespace NinMod.TestItems
 
 
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(1041, 93);
-			recipe.SetResult(this);
-			recipe.AddTile(18);
-			recipe.AddRecipe();
-		}
 	}
 }

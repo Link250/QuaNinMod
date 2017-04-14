@@ -53,14 +53,5 @@ namespace NinMod.TestItems
 			item.shoot = 14;
 			item.toolTip = "fillme!";
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddTile(18);
-			recipe.SetResult(this);
-			recipe.AddIngredient(1041, 93);
-			recipe.AddRecipe();
-		}
 	}
 }

@@ -19,14 +19,5 @@ namespace NinMod.TestItems
 			item.ammo = 342;
 			item.consumable = true;
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(1041, 93);
-			recipe.AddTile(18);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
 	}
 }
