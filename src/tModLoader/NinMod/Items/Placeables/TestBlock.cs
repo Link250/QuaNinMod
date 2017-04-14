@@ -22,13 +22,5 @@ namespace NinMod.Items.Placeables {
             item.value = 150;
             item.createTile = mod.TileType("TestBlock");
         }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(1041, 93);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
     }
 }
