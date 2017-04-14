@@ -17,5 +17,10 @@ namespace NinMod
 				AutoloadSounds = true
 			};
 		}
-	}
+
+        public override void AddRecipes() {
+            base.AddRecipes();
+            Main.tileSpelunker[TileID.Hellstone] = true;
+        }
+    }
 }
