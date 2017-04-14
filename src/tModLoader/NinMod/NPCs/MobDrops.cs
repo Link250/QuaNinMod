@@ -17,10 +17,12 @@ namespace ModGlobalNPC.NPCs
             }
           }
 
-/*        	if(npc.type == NPCID.Zombie && Main.rand.Next(100) == 0)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.PlatinumCoin, 95);
-            }*/
+            /*        	if(npc.type == NPCID.Zombie && Main.rand.Next(100) == 0)
+                        {
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.PlatinumCoin, 95);
+                        }*/
+         
+            
         }
     }
 }

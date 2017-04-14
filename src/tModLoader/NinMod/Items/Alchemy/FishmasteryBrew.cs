@@ -26,7 +26,7 @@ namespace NinMod.Items.Alchemy
             item.value = 1000;
             item.rare = 5;
             item.buffType = mod.BuffType("FishmasteryBuff");
-            item.buffTime = 36000;
+            item.buffTime = 72000;
             return;
         }
 		

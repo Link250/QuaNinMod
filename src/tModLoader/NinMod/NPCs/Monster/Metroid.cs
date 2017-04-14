@@ -15,7 +15,7 @@ namespace NinMod.NPCs.Monster
 			npc.height = 88;
 			npc.damage = 170;
 			npc.defense = 120;
-			npc.lifeMax = 13200;
+			npc.lifeMax = 14200;
 			/*npc.soundHit = 8;
 			npc.soundKilled = 5;*/
 			npc.value = 75000f;
@@ -30,11 +30,19 @@ namespace NinMod.NPCs.Monster
 			animationType = 421;
         
         }
-        
+        public override void NPCLoot()
+        {
+            {
+                if (Main.rand.Next(30) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Ninvolver"), 1);
+                }
+            }
+        }
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.rand.Next(8)==0 && spawnInfo.player.ZoneTowerSolar? 0.7f : 0f;
+			return spawnInfo.player.ZoneTowerSolar? 0.02f : 0f;
         }
 		
 		public override void HitEffect(int hitDirection, double damage)

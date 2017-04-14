@@ -17,7 +17,7 @@ namespace NinMod.NPCs.Monster
         {
             npc.name = "Nyan Cat";        //this is the npc Name
             npc.displayName = "Nyan Cat";
-            npc.lifeMax = 34000;        //this is the npc health
+            npc.lifeMax = 44000;        //this is the npc health
             npc.damage = 180;    //this is the npc damage
             npc.defense = 40;         //this is the npc defense
             npc.knockBackResist = 0f;
@@ -36,7 +36,7 @@ namespace NinMod.NPCs.Monster
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return Main.rand.Next(8) == 0 && spawnInfo.player.ZoneTowerNebula ? 0.7f : 0f;
+            return spawnInfo.player.ZoneTowerNebula ? 0.02f : 0f;
 
         }
         public override bool PreAI()
@@ -74,8 +74,8 @@ namespace NinMod.NPCs.Monster
                     Main.npc[(int)latestNPC].ai[3] = npc.whoAmI;
 
                     // We're setting npc.ai[0] to 1, so that this 'if' is not triggered again.
-                    npc.ai[0] = 1;
-                    npc.netUpdate = true;
+                   /* npc.ai[0] = 1;
+                    npc.netUpdate = true;*/
                 }
             }
 

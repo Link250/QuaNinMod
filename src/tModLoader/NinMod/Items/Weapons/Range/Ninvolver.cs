@@ -24,7 +24,7 @@ namespace NinMod.Items.Weapons.Range
 		public override void SetDefaults()
 		{
 			item.name = "Ninvolver";
-			item.damage = 375;
+			item.damage = 395;
 			item.crit = 8;
 			item.expertOnly = true;
 			item.expert = true;
@@ -52,13 +52,13 @@ namespace NinMod.Items.Weapons.Range
 		
 
 
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddTile(18);
 			recipe.AddIngredient(1041, 93);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
+		}*/
 	}
 }
