@@ -12,6 +12,7 @@ namespace NinMod.Tiles{
     public class Miner_Block : ModTile{
         protected double[] lastDrills = new double[1000]; // used for drill timeouts
         protected int[] spelunkerLeft = new int[1000]; // used for drill timeouts
+        protected HitTile[] hitTiles = new HitTile[1000]; // used for drill timeouts
 
         protected int drillTimeout = 60 * 5; // timeout between drills in frames (60 per s)
         protected int width = 1; //width of the drill area (has to be uneven)
@@ -74,6 +75,7 @@ namespace NinMod.Tiles{
                 Chest chest = Main.chest[chestIndex];
                 if(spelunkerLeft[chestIndex] < 1) { refillSpelunkerTime(chest, chestIndex); }
                 bool foundTile = false;
+                bool isMiningSpelunker = false;
                 while (drillY < Main.Map.MaxHeight && WorldGen.TileEmpty(drillX, drillY) && !foundTile) {
                     if (spelunkerLeft[chestIndex] >= 1) {
                         int maxXoffset = spelunkerWidth / 2;
@@ -94,8 +96,7 @@ namespace NinMod.Tiles{
                             if (!WorldGen.TileEmpty(drillX + oreDir*Xoffset, drillY)) {
                                 drillX += oreDir*Xoffset;
                                 foundTile = true;
-                                if (getChestIndex(drillX, drillY) >= 0) break;
-                                if (Main.tileSpelunker[Main.tile[drillX, drillY].type]) spelunkerLeft[chestIndex]--;
+                                isMiningSpelunker = Main.tileSpelunker[Main.tile[drillX, drillY].type];
                                 break;
                             }
                         }
@@ -128,8 +129,10 @@ namespace NinMod.Tiles{
                     }
                 }
                 if (foundSpace) {
-                    MineBlock(drillX, drillY, chest.item[0].pick, chest);
+                    if (hitTiles[chestIndex] == null) hitTiles[chestIndex] = new HitTile();
+                    MineBlock(drillX, drillY, chest.item[0].pick, chest, hitTiles[chestIndex]);
                     collectDrop(drillX, drillY, chest, chestIndex);
+                    if(isMiningSpelunker && WorldGen.TileEmpty(drillX, drillY)) spelunkerLeft[chestIndex]--;
                 }
             }
         }
@@ -151,8 +154,7 @@ namespace NinMod.Tiles{
             }
         }
 
-        public void MineBlock(int x, int y, int pickPower, Chest chest) {
-            HitTile hitTile = new HitTile();
+        public void MineBlock(int x, int y, int pickPower, Chest chest, HitTile hitTile) {
             hitTile.UpdatePosition(Main.tile[x, y].type, x, y);
             int num = 0;
             int tileId = hitTile.HitObject(x, y, 1);
