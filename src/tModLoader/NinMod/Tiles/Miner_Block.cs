@@ -7,6 +7,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.Audio;
 
 namespace NinMod.Tiles{
     public class Miner_Block : ModTile{
@@ -24,6 +25,8 @@ namespace NinMod.Tiles{
 
         protected Point chestOffset = new Point(-2,1);
         protected Point drillOffset = new Point(1,4);
+
+        protected LegacySoundStyle drillSound = SoundID.Item23;
 
         public override void SetDefaults(){
             Main.tileFrameImportant[Type] = true;
@@ -119,6 +122,8 @@ namespace NinMod.Tiles{
                 }
                 if (drillY >= Main.Map.MaxHeight) return;
                 int type = Main.tile[drillX, drillY].type;
+//                Main.PlaySound(drillSound, drillX * 16, drillY * 16, 1, 1f, 0f);
+                Main.PlaySound(drillSound, drillX * 16, drillY * 16);
 
                 bool foundSpace = false;
                 for (int slot = 0; slot < chest.item.Length; slot++){

@@ -18,6 +18,8 @@ namespace NinMod.Tiles{
             base.chestOffset = new Point(-2, 2);
             base.drillOffset = new Point(2, 5);
 
+            base.drillSound = SoundID.Item15;
+
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = false;

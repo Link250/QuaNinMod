@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace NinMod.Items.Placeables {
@@ -17,7 +18,7 @@ namespace NinMod.Items.Placeables {
             item.useTime = 10;
             item.useStyle = 1;
             item.consumable = true;
-            item.value = 5 * (1 * 100 * 100);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.createTile = mod.TileType("Miner_Block");
         }
 
